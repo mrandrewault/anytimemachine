@@ -85,7 +85,7 @@ h1 {
 #count { font-family: var(--mono); font-size: 11.5px; color: var(--fg-3); }
 
 /* ---- chart ---- */
-#chartRow { display: flex; align-items: flex-start; margin-top: 10px; }
+#chartRow { display: flex; align-items: flex-start; margin-top: 10px; position: relative; }
 #gutter { flex: 0 0 114px; position: relative; pointer-events: none; }
 #gutter div { position: absolute; right: 12px; font-size: 11.5px; color: var(--fg-2); white-space: nowrap; }
 #chartWrap { flex: 1 1 auto; min-width: 0; overflow-x: auto; overflow-y: hidden; cursor: grab; }
@@ -102,24 +102,40 @@ h1 {
 .rall { font: 500 11px var(--sans); color: var(--fg-3); background: none; border: 1px solid var(--line);
   border-radius: 999px; padding: 6px 11px; cursor: pointer; margin-left: 4px; }
 .rall:hover { color: var(--fg); }
-svg.inspecting .bar { opacity: .12; }
-svg.inspecting .bar.held { opacity: 1; }
-.stackbar { pointer-events: none; }
-.stacklbl { fill: #fff; font-weight: 600; pointer-events: none; }
-.stackkind { fill: rgba(255,255,255,.8); font-family: var(--mono); pointer-events: none; }
-.dcard { font-family: var(--sans); color: var(--fg); background: rgba(10,16,20,.94);
-  border: 1px solid var(--line-2); border-radius: 9px; padding: 13px 15px 12px;
-  box-shadow: 0 18px 50px rgba(0,0,0,.75); }
-.dcard .k { font-family: var(--mono); font-size: 8.5px; letter-spacing: .12em; color: var(--fg-3);
-  text-transform: uppercase; margin-bottom: 6px; }
-.dcard p { font-size: 12.5px; line-height: 1.55; margin: 0 0 7px; }
+svg.inspecting .bar { opacity: .10; }
+svg.inspecting .bar.held { opacity: .85; }
+
+/* ---- the deck: index cards that come forward and go back ---- */
+.deck { position: absolute; top: 0; bottom: 0; left: 114px; right: 0; z-index: 30;
+  overflow: hidden;
+  background: radial-gradient(120% 90% at 50% 30%, rgba(4,8,11,.30) 0%, rgba(4,8,11,.78) 70%); }
+.deck[hidden] { display: none; }
+.dcard { position: absolute; left: 50%; width: 560px; margin-left: -280px; height: 296px;
+  background: #0d1318; border: 1px solid var(--line-2); border-radius: 12px;
+  box-shadow: 0 34px 90px rgba(0,0,0,.82), 0 2px 0 rgba(255,255,255,.05) inset;
+  overflow: hidden; cursor: pointer; transform-origin: 50% 0;
+  will-change: transform, opacity; }
+.dcard.front { cursor: default; }
+.dcard .hd { padding: 11px 17px 9px; border-bottom: 1px solid rgba(255,255,255,.07); }
+.dcard .hd .row { display: flex; align-items: baseline; justify-content: space-between; gap: 14px; }
+.dcard .hd .yr { font-family: var(--mono); font-size: 9px; letter-spacing: .1em;
+  color: var(--fg-3); margin-top: 5px; }
+.dcard .hd .nm { font-family: var(--sans); font-size: 15px; font-weight: 600; color: #fff;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.dcard .hd .k { font-family: var(--mono); font-size: 8.5px; letter-spacing: .13em;
+  text-transform: uppercase; color: rgba(255,255,255,.62); white-space: nowrap; }
+.dcard .tint { height: 3px; }
+.dcard .bd { padding: 13px 17px 16px; height: 222px; overflow: hidden; color: var(--fg); }
+.dcard p { font-size: 13px; line-height: 1.58; margin: 0 0 8px; }
 .dcard ul { list-style: none; margin: 0; padding: 0; }
-.dcard li { font-size: 11.5px; line-height: 1.45; color: var(--fg-2); margin-bottom: 5px; }
+.dcard li { font-size: 12px; line-height: 1.5; color: var(--fg-2); margin-bottom: 7px; }
 .dcard li b { color: var(--fg); }
 .dcard li span { font-family: var(--mono); font-size: 9.5px; color: var(--fg-3); }
-.dcard .dim { color: var(--fg-2); font-size: 11.5px; }
+.dcard .dim { color: var(--fg-2); font-size: 12px; }
 .dcard a { font-family: var(--mono); font-size: 9.5px; color: var(--fg-3); }
-.dcard .nav { font-family: var(--mono); font-size: 9px; letter-spacing: .08em; color: var(--fg-3); margin-top: 9px; }
+.deckhint { position: absolute; left: 0; right: 0; top: 0; text-align: center;
+  font-family: var(--mono); font-size: 9px; letter-spacing: .09em; color: var(--fg-3);
+  pointer-events: none; }
 svg { display: block; }
 .lane-band { fill: rgba(255,255,255,.016); }
 .lane-name {
@@ -245,6 +261,7 @@ td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
   <button class="rall" id="rNone">None</button>
 </div>
 <div id="chartRow"><div id="gutter"></div><div id="chartWrap"><svg id="chart" role="img" aria-label="Timeline of 240 historical entities from the year 1000 to the present, grouped into eight world regions"></svg></div>
+  <div id="deck" class="deck" hidden><div class="deckhint" id="deckHint">SCROLL TO GO DEEPER &nbsp;·&nbsp; LEFT AND RIGHT ALONG THE LANE &nbsp;·&nbsp; ESCAPE TO LET GO</div></div>
 
   <div id="tableWrap" hidden></div>
 
@@ -8684,7 +8701,15 @@ window.HOE_CAUSES = [
 
     if (state.sel) drawLinks(W, laneInfo);
     highlight();
-    if (insp) { gStack = null; drawStack(); }
+    if (insp) {
+      if (!visible(insp.n)) { closeStack(); }
+      else {
+        svg.classList.add('inspecting');
+        var hb = svg.querySelectorAll('.bar');
+        for (var hi = 0; hi < hb.length; hi++) hb[hi].classList.toggle('held', hb[hi].getAttribute('data-id') === insp.n.id);
+        placeCards();
+      }
+    }
   }
 
   function posOf(id, W, laneInfo) {
@@ -9013,32 +9038,99 @@ window.HOE_CAUSES = [
     ];
   }
 
-  var insp = null, iz = 0, izT = 0, iRun = false, iLast = 0, gStack = null;
-  var I_PERSP = 900, I_STEP = 108, I_RISE = 118;
+  var insp = null, iz = 0, izT = 0, iRun = false, iLast = 0;
+  var D_PERSP = 900, D_STEP = 112, D_RISE = 34;
+  var deck = document.getElementById('deck');
+  var deckHint = document.getElementById('deckHint');
 
   function openStack(n) {
-    insp = { n: n, layers: layersFor(n) };
-    iz = -0.8; izT = 0;
+    insp = { n: n, layers: layersFor(n), cards: [] };
+    iz = -1.15; izT = 0;
     svg.classList.add('inspecting');
     var bars = svg.querySelectorAll('.bar');
     for (var i = 0; i < bars.length; i++) bars[i].classList.toggle('held', bars[i].getAttribute('data-id') === n.id);
+    buildCards();
+    deck.hidden = false;
     iKick();
   }
   function closeStack() {
+    if (!insp) return;
     insp = null;
     svg.classList.remove('inspecting');
     var bars = svg.querySelectorAll('.bar');
     for (var i = 0; i < bars.length; i++) bars[i].classList.remove('held');
-    if (gStack && gStack.parentNode) gStack.parentNode.removeChild(gStack);
-    gStack = null;
+    deck.hidden = true;
+    clearCards();
   }
+  function clearCards() {
+    var old = deck.querySelectorAll('.dcard');
+    for (var i = 0; i < old.length; i++) old[i].parentNode.removeChild(old[i]);
+  }
+
+  function buildCards() {
+    clearCards();
+    var n = insp.n, col = COLOR[n.region];
+    for (var k = 0; k < insp.layers.length; k++) {
+      var lay = insp.layers[k];
+      var c = document.createElement('div');
+      c.className = 'dcard';
+      c.setAttribute('data-k', k);
+      c.innerHTML = '<div class="tint" style="background:' + col + ';opacity:' + (lay.ghost ? '.30' : '1') + '"></div>' +
+        '<div class="hd"><div class="row"><span class="nm">' + esc(n.name) + '</span><span class="k">' + esc(lay.kind) + '</span></div>' +
+        '<div class="yr">' + esc(yearLabel(n)) + '</div></div>' +
+        '<div class="bd">' + lay.html() + '</div>';
+      (function (idx) {
+        c.addEventListener('click', function (ev) { ev.stopPropagation(); iSet(idx); });
+      })(k);
+      deck.appendChild(c);
+      insp.cards.push(c);
+    }
+  }
+
+  function yearLabel(n) {
+    var a = n.start < 0 ? Math.abs(n.start) + ' BCE' : String(n.start);
+    var b = n.end >= 2024 ? 'still running' : (n.end < 0 ? Math.abs(n.end) + ' BCE' : String(n.end));
+    return a + '  →  ' + b;
+  }
+
+  function placeCards() {
+    if (!insp) return;
+    var r = deck.getBoundingClientRect();
+    var vh = window.innerHeight || 800;
+    var visTop = Math.max(0, -r.top) + 14;
+    var visBot = Math.min(r.height, vh - r.top) - 16;
+    var lift = (insp.layers.length - 1) * D_RISE;
+    var need = lift + 300;
+    var want = (insp.n._gy || 0) - 118;
+    var top;
+    if (visBot - visTop < need) top = visTop + lift;
+    else top = Math.max(visTop + lift, Math.min(visBot - 300, want));
+    top = Math.round(top);
+    deckHint.style.transform = 'translateY(' + (top + 310) + 'px)';
+    for (var k = 0; k < insp.cards.length; k++) {
+      var c = insp.cards[k];
+      var off = k - iz;
+      var sc = D_PERSP / (D_PERSP + off * D_STEP);
+      var ty = top - off * D_RISE;
+      var op = off >= -0.12 ? Math.max(0, 1 - Math.max(0, off) * 0.115)
+             : Math.max(0, 1 + (off + 0.12) * 2.1);
+      if (sc <= 0.1) op = 0;
+      c.style.transform = 'translateY(' + ty.toFixed(1) + 'px) scale(' + sc.toFixed(4) + ')';
+      c.style.opacity = op.toFixed(3);
+      c.style.zIndex = String(200 - k);
+      c.style.display = op <= 0.015 ? 'none' : 'block';
+      c.className = 'dcard' + (Math.abs(off) < 0.5 ? ' front' : '');
+    }
+  }
+  function drawStack() { placeCards(); }
+
   function stackStep(dir) {
     if (!insp) return;
     var lane = E.filter(function (e) { return e.region === insp.n.region && visible(e); })
                 .sort(function (a, b) { return a.start - b.start || a.end - b.end; });
     var ids = lane.map(function (e) { return e.id; });
     var nx = lane[(ids.indexOf(insp.n.id) + dir + lane.length) % lane.length];
-    if (nx) { openStack(nx); scrollTo_(nx); }
+    if (nx) { openStack(nx); showDetail(nx.id); scrollTo_(nx); }
   }
   function scrollTo_(n) {
     if (n._gx1 === undefined) return;
@@ -9047,57 +9139,14 @@ window.HOE_CAUSES = [
     if (n._gx1 < w.scrollLeft + 40 || n._gx1 > w.scrollLeft + w.clientWidth - 260) w.scrollLeft = want;
   }
 
-  function drawStack() {
+  deck.addEventListener('click', function () { closeStack(); });
+  window.addEventListener('scroll', function () { if (insp) placeCards(); }, { passive: true });
+  deck.addEventListener('wheel', function (ev) {
     if (!insp) return;
-    if (!gStack || !gStack.parentNode) { gStack = el('g', { id: 'stack' }); svg.appendChild(gStack); }
-    while (gStack.firstChild) gStack.removeChild(gStack.firstChild);
-    var n = insp.n;
-    if (n._gx1 === undefined) return;
-    var W2 = width();
-    var bx1 = n._gx1, bx2 = Math.max(n._gx1 + 40, n._gx2);
-    var h = Math.max(BAR, 30), w = Math.max(bx2 - bx1, 480);
-    var x1 = Math.min(bx1, W2 - PAD_R - w), x2 = x1 + w;
-    var y = n._gy + BAR / 2 - h / 2;
-    var cx = (x1 + x2) / 2, cy = y + h / 2;
-    var vx = cx, vy = cy - I_RISE;
-    var col = COLOR[n.region];
-
-    for (var k = insp.layers.length - 1; k >= 0; k--) {
-      var off = k - iz;
-      var sc = I_PERSP / (I_PERSP + off * I_STEP);
-      if (sc <= 0.08) continue;
-      var lx = vx + (x1 - vx) * sc, lw = w * sc;
-      var ly = vy + (y - vy) * sc, lh = h * sc;
-      var op = off < -0.9 ? 0 : off < 0 ? Math.max(0, 1 + off * 1.1) : Math.max(0.08, 1 - off * 0.17);
-      if (op <= 0.02) continue;
-      var lay = insp.layers[k];
-      var g = el('g', { class: 'stackbar', opacity: op.toFixed(3) });
-      g.appendChild(el('rect', { x: lx, y: ly, width: lw, height: lh, rx: 2 * sc,
-        fill: col, 'fill-opacity': lay.ghost ? 0.32 : 0.95 }));
-      g.appendChild(el('path', { d: 'M' + (lx - lh * 0.48) + ' ' + (ly + lh / 2) + ' l' + (lh * 0.48) + ' ' + (-lh / 2) + ' v' + lh + ' z',
-        fill: col, 'fill-opacity': lay.ghost ? 0.32 : 0.95 }));
-      if (lw > 90 && lh > 9) {
-        var t1 = el('text', { x: lx + 8 * sc, y: ly + lh * 0.72, class: 'stacklbl', 'font-size': (13.5 * sc).toFixed(2) });
-        t1.textContent = n.name; g.appendChild(t1);
-        var t2 = el('text', { x: lx + lw - 8 * sc, y: ly + lh * 0.7, class: 'stackkind', 'text-anchor': 'end', 'font-size': (9.5 * sc).toFixed(2) });
-        t2.textContent = lay.kind; g.appendChild(t2);
-      }
-      gStack.appendChild(g);
-    }
-
-    var cur = insp.layers[Math.max(0, Math.min(insp.layers.length - 1, Math.round(iz)))];
-    var near2 = 1 - Math.min(1, Math.abs(iz - Math.round(iz)) * 2);
-    var cw = Math.min(540, W2 - PAD_L - PAD_R - 20);
-    var cxp = Math.min(Math.max(PAD_L, x1), W2 - PAD_R - cw);
-    var fo = el('foreignObject', { x: cxp, y: y + h + 12, width: cw, height: 230, opacity: near2.toFixed(2) });
-    var div = document.createElement('div');
-    div.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml');
-    div.className = 'dcard';
-    div.innerHTML = '<div class="k">' + esc(cur.kind) + '</div>' + cur.html() +
-      '<div class="nav">SCROLL TO GO DEEPER   ·   LEFT AND RIGHT ALONG THE LANE   ·   ESCAPE TO LET GO</div>';
-    fo.appendChild(div);
-    gStack.appendChild(fo);
-  }
+    ev.preventDefault();
+    var d = Math.abs(ev.deltaY) > Math.abs(ev.deltaX) ? ev.deltaY : ev.deltaX;
+    iSetFree(izT + d * 0.0052);
+  }, { passive: false });
 
   function iTick(ts) {
     var dt = iLast ? Math.max(4, Math.min(80, ts - iLast)) : 16.7;
@@ -9109,7 +9158,15 @@ window.HOE_CAUSES = [
     if (iRun && insp) requestAnimationFrame(iTick); else iLast = 0;
   }
   function iKick() { if (!iRun) { iRun = true; iLast = 0; requestAnimationFrame(iTick); } }
-  function iSet(v) { izT = Math.max(0, Math.min(insp.layers.length - 1, v)); iKick(); }
+  function iSet(v) { if (!insp) return; clearTimeout(snapT); izT = Math.max(0, Math.min(insp.layers.length - 1, v)); iKick(); }
+  var snapT = null;
+  function iSetFree(v) {
+    if (!insp) return;
+    izT = Math.max(0, Math.min(insp.layers.length - 1, v));
+    iKick();
+    clearTimeout(snapT);
+    snapT = setTimeout(function () { if (insp) iSet(Math.round(izT)); }, 170);
+  }
 
   window.addEventListener('keydown', function (ev) {
     if (!insp) return;
