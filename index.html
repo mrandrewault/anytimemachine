@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Anytime Machine</title>
+<meta name="description" content="A thousand years of history, three ways to move through it.">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..800&family=Instrument+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --surface:#0b1013; --surface-2:#121a1e; --surface-3:#19252b;
+  --line:rgba(214,234,232,.13); --line-2:rgba(214,234,232,.28);
+  --fg:#e8ece9; --fg-2:#a4b1ae; --fg-3:#6f7b79;
+  --display:'Fraunces','Iowan Old Style',Georgia,serif;
+  --sans:'Instrument Sans',system-ui,-apple-system,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--surface);color:var(--fg);font-family:var(--sans);
+  -webkit-font-smoothing:antialiased}
+body{min-height:100%;display:flex;flex-direction:column}
+.wrap{max-width:1080px;width:100%;margin:0 auto;padding:clamp(34px,7vh,80px) max(20px,env(safe-area-inset-left,0px)) 60px;flex:1 1 auto}
+h1{font-family:var(--display);font-weight:600;font-size:clamp(40px,7vw,68px);line-height:1;
+  margin:0 0 16px;letter-spacing:-.025em}
+.lede{font-size:clamp(15px,1.7vw,18px);line-height:1.55;color:var(--fg-2);max-width:54ch;margin:0 0 10px}
+.byline{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--fg-3);
+  text-transform:uppercase;margin:0 0 46px}
+.cards{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(286px,1fr))}
+a.card{display:block;text-decoration:none;color:inherit;background:var(--surface-2);
+  border:1px solid var(--line);border-radius:14px;padding:26px 24px 24px;position:relative;
+  transition:border-color .2s ease,background .2s ease,transform .2s ease}
+a.card:hover{border-color:var(--line-2);background:var(--surface-3);transform:translateY(-2px)}
+a.card .n{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--fg-3)}
+a.card h2{font-family:var(--display);font-size:25px;font-weight:600;margin:13px 0 9px;letter-spacing:-.01em}
+a.card p{font-size:13.5px;line-height:1.6;color:var(--fg-2);margin:0 0 16px}
+a.card .go{font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;color:var(--fg-3)}
+a.card:hover .go{color:var(--fg)}
+.art{height:92px;margin-bottom:4px;display:block;overflow:visible}
+.note{margin-top:46px;padding-top:22px;border-top:1px solid var(--line);
+  font-size:13px;line-height:1.65;color:var(--fg-2);max-width:62ch}
+.note b{color:var(--fg);font-weight:600}
+footer{font-family:var(--mono);font-size:10px;letter-spacing:.1em;color:var(--fg-3);
+  text-transform:uppercase;padding:0 max(20px,env(safe-area-inset-left,0px)) 34px;
+  max-width:1080px;width:100%;margin:0 auto}
+@media (prefers-reduced-motion:reduce){a.card{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <h1>Anytime Machine</h1>
+  <p class="lede">A thousand years of history, laid out so you can see what was happening everywhere at once. Three ways in. Same world underneath.</p>
+  <p class="byline">Made by Jingle</p>
+
+  <div class="cards">
+
+    <a class="card" href="/rings/">
+      <svg class="art" viewBox="0 0 120 92" aria-hidden="true">
+        <g fill="none" stroke="#3987e5" stroke-opacity=".75">
+          <circle cx="60" cy="46" r="42" stroke-opacity=".16"/>
+          <circle cx="60" cy="46" r="33" stroke-opacity=".26"/>
+          <circle cx="60" cy="46" r="25" stroke-opacity=".4"/>
+          <circle cx="60" cy="46" r="17" stroke-opacity=".6"/>
+          <circle cx="60" cy="46" r="9"  stroke-opacity=".9"/>
+        </g>
+        <circle cx="60" cy="46" r="2.6" fill="#9fd5ff"/>
+      </svg>
+      <div class="n">ONE</div>
+      <h2>The Rings</h2>
+      <p>Fall through time. Scroll fast and a thousand years goes by in a second. Slow down and the rings split into centuries, then decades, then years.</p>
+      <div class="go">GO DEEP &rarr;</div>
+    </a>
+
+    <a class="card" href="/timeline/">
+      <svg class="art" viewBox="0 0 120 92" aria-hidden="true">
+        <g>
+          <rect x="6"  y="18" width="76" height="7" rx="2" fill="#3987e5" fill-opacity=".85"/>
+          <rect x="24" y="31" width="62" height="7" rx="2" fill="#c98500" fill-opacity=".8"/>
+          <rect x="12" y="44" width="94" height="7" rx="2" fill="#199e70" fill-opacity=".8"/>
+          <rect x="40" y="57" width="52" height="7" rx="2" fill="#9085e9" fill-opacity=".8"/>
+          <rect x="18" y="70" width="70" height="7" rx="2" fill="#e66767" fill-opacity=".75"/>
+        </g>
+      </svg>
+      <div class="n">TWO</div>
+      <h2>The Timeline</h2>
+      <p>Move left and right through the centuries with whichever parts of the world you want side by side. Click anything and the deeper layers grow in behind it.</p>
+      <div class="go">GO ACROSS &rarr;</div>
+    </a>
+
+    <a class="card" href="/stars/">
+      <svg class="art" viewBox="0 0 120 92" aria-hidden="true">
+        <g stroke="rgba(190,214,228,.3)" fill="none">
+          <path d="M22 66 Q50 34 74 26"/>
+          <path d="M74 26 Q92 34 100 56"/>
+          <path d="M22 66 Q44 74 62 72"/>
+        </g>
+        <g>
+          <circle cx="22" cy="66" r="3.4" fill="#199e70"/>
+          <circle cx="74" cy="26" r="3.4" fill="#3987e5"/>
+          <circle cx="100" cy="56" r="3" fill="#d55181"/>
+          <circle cx="62" cy="72" r="2.6" fill="#c98500"/>
+          <circle cx="40" cy="20" r="1.5" fill="#9085e9" fill-opacity=".6"/>
+          <circle cx="92" cy="14" r="1.3" fill="#e66767" fill-opacity=".55"/>
+          <circle cx="12" cy="36" r="1.2" fill="#a4b1ae" fill-opacity=".5"/>
+          <circle cx="56" cy="48" r="1.4" fill="#a4b1ae" fill-opacity=".45"/>
+        </g>
+      </svg>
+      <div class="n">THREE</div>
+      <h2>One Thing Leads to Another</h2>
+      <p>A field of drifting points, every one of them joined to something. Touch one and watch what it made possible travel outward, years at a time.</p>
+      <div class="go">FOLLOW A THREAD &rarr;</div>
+    </a>
+
+  </div>
+
+  <div class="note">
+    <b>A note on how this is built.</b> Dates carry their own uncertainty. A squared end on a bar means we know the year. A soft end means we are guessing. A dotted line means historians give different answers, and the page says who reads it differently. Nothing is joined to anything unless a source supports the line between them, which is why most things here are joined to nothing at all.
+  </div>
+
+</div>
+<footer>Anytime Machine</footer>
+</body>
+</html>
