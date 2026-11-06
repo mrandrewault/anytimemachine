@@ -260,7 +260,13 @@ td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
   <button class="rall" id="rAll">All</button>
   <button class="rall" id="rNone">None</button>
 </div>
-<div id="chartRow"><div id="gutter"></div><div id="chartWrap"><svg id="chart" role="img" aria-label="Timeline of 240 historical entities from the year 1000 to the present, grouped into eight world regions"></svg></div>
+<div class="regionnav" id="genrenav">
+  <span class="rlab">KIND</span>
+  <div class="rbtns" id="gbtns"></div>
+  <button class="rall" id="gAll">All</button>
+  <button class="rall" id="gNone">None</button>
+</div>
+<div id="chartRow"><div id="gutter"></div><div id="chartWrap"><svg id="chart" role="img" aria-label="Timeline of 264 historical entities from the year 1000 to the present, grouped into eight world regions and six kinds of thing"></svg></div>
   <div id="deck" class="deck" hidden><div class="deckhint" id="deckHint">SCROLL TO GO DEEPER &nbsp;·&nbsp; LEFT AND RIGHT ALONG THE LANE &nbsp;·&nbsp; ESCAPE TO LET GO</div></div>
 
   <div id="tableWrap" hidden></div>
@@ -8487,12 +8493,525 @@ window.HOE_CAUSES = [
 
 ];
 
+/* Anytime Machine : the culture layer for the manycenters era, 1000 to 1450 CE.
+   Works, movements, traditions and practices rather than polities.
+   Dates run past the window edges on purpose so the timeline can draw them
+   arriving and leaving. Style and movement labels are usually applied long
+   after the fact, so a label's span is marked contested wherever that is true. */
+window.HOE_ENTITIES_CULTURE_1000_1450 = [
+  {
+    id: "lalibela-rock-churches",
+    name: "Rock-hewn churches of Lalibela",
+    also: ["Lalibela churches","Bete Giyorgis and its neighbours"],
+    region: "africa",
+    where: "the Lasta highlands of northern Ethiopia",
+    kind: "architecture",
+    start: 1150,
+    end: 1250,
+    startPrecision: "contested",
+    endPrecision: "contested",
+    dateNote: "UNESCO puts the eleven churches in the thirteenth century and dates the king's project to the twelfth, and nothing on the buildings records a construction date, so both ends are estimates.",
+    from: [{"id":"zagwe-dynasty","how":"built-under"}],
+    to: [],
+    influence: [],
+    peak: 1200,
+    note: "Most buildings go up, and these eleven churches went down. Masons in the highlands of what is now Ethiopia cut deep trenches around a block of soft volcanic rock, then hollowed it out from the top. Doors, windows, columns, floors and roofs were all carved from that one piece of stone. King Lalibela, who ordered the work, wanted a holy city at home, because Muslim conquests had closed the road to Jerusalem. Priests still hold services inside.",
+    confidence: "contested",
+    wikidata: null,
+    source: "https://whc.unesco.org/en/list/18/"
+  },
+  {
+    id: "ife-cast-heads",
+    name: "Ife cast heads",
+    also: ["Ife brass heads","Wunmonije heads"],
+    region: "africa",
+    where: "Ile-Ife, southwestern Nigeria",
+    kind: "sculpture",
+    start: 1300,
+    end: 1450,
+    startPrecision: "contested",
+    endPrecision: "contested",
+    dateNote: "The British Museum dates its own Ife head to probably the fourteenth or early fifteenth century and describes the city as a trading and religious centre between 1100 and 1400; none of the heads carries a date.",
+    from: [{"id":"ife","how":"made-in"}],
+    to: [],
+    influence: [],
+    peak: 1350,
+    note: "In 1938 builders digging foundations in what is now southwestern Nigeria hit metal. They had found seventeen cast heads, life-sized, modelled so closely on real faces that early European writers refused to believe Africans made them. The heads come from Ife, a city that was a trading and religious centre for three hundred years. They are brass, which is copper mixed with zinc, poured into moulds around a wax model that burns away. Nobody knows what the heads were for, though the beaded headdress on one suggests a ruler.",
+    confidence: "contested",
+    wikidata: null,
+    source: "https://www.britishmuseum.org/collection/object/E_Af1939-34-1"
+  },
+  {
+    id: "ethiopian-illuminated-books",
+    name: "Ethiopian illuminated manuscripts",
+    also: ["Ethiopic manuscripts","Ethiopian gospel books"],
+    region: "africa",
+    where: "Ethiopia and Eritrea",
+    kind: "book",
+    start: 1300,
+    end: 1900,
+    startPrecision: "contested",
+    endPrecision: "range",
+    dateNote: "The Walters Art Museum studied sixty-seven Ethiopian manuscripts running from the early fourteenth century to the early twentieth, and says examples older than the thirteenth century are rare, so the start is a soft edge.",
+    from: [{"id":"solomonic-ethiopia","how":"made-under"}],
+    to: [],
+    influence: [],
+    peak: 1450,
+    note: "Ink that takes a year to make. Ethiopian scribes burned soot, mixed it with tree gum, then dried it into cakes that kept for months before water turned them back into ink. They wrote Christian gospel books on parchment, which is animal skin scraped thin. Yellow paint came from a mineral, standing in for gold, which almost never reached them. Most of the colours were imported, so a painted page is also a record of trade. Gospel books in this tradition were still being made six hundred years later.",
+    confidence: "approximate",
+    wikidata: null,
+    source: "https://journal.thewalters.org/volume/78/note/ethiopian-manuscripts/"
+  },
+  {
+    id: "seljuk-caravanserais",
+    name: "Seljuk caravanserais",
+    also: ["Anatolian khans","sultanhans"],
+    region: "westasia",
+    where: "central Anatolia, Turkey",
+    kind: "architecture",
+    start: 1150,
+    end: 1300,
+    startPrecision: "range",
+    endPrecision: "range",
+    dateNote: "Archnet dates these buildings to the twelfth and thirteenth centuries while its own record for the group gives a thirteenth to fourteenth century period, so the span here is a working estimate.",
+    from: [{"id":"great-seljuk-empire","how":"built-by-successors"}],
+    to: [],
+    influence: [],
+    peak: 1250,
+    note: "A day's walk is about thirty kilometres. That number set the spacing of the stone inns built along the roads of central Anatolia, the land that is now Turkey. Each one was a fortress from outside, with high walls, no windows and a single gate. Inside were stables, water and a bath, with rooms set around a courtyard and a small mosque. Travellers paid nothing to stay, because the rulers and wealthy families who funded them were buying prayers and standing, not rent.",
+    confidence: "approximate",
+    wikidata: null,
+    source: "https://www.archnet.org/sites/4147"
+  },
+  {
+    id: "kashan-lustreware",
+    name: "Kashan lustre pottery",
+    also: ["Persian lustreware","kashi tilework"],
+    region: "westasia",
+    where: "Kashan and central Iran",
+    kind: "ceramic",
+    start: 1075,
+    end: 1340,
+    startPrecision: "range",
+    endPrecision: "contested",
+    dateNote: "The Smithsonian's National Museum of Asian Art says the technique reached Iran by the late eleventh century and was at its most accomplished under the Seljuq rulers of 1038 to 1194, and gives no closing date, so the end here is an estimate.",
+    from: [{"id":"great-seljuk-empire","how":"made-under"}],
+    to: [],
+    influence: [],
+    peak: 1200,
+    note: "Here is how you make a clay pot look like gold. Potters in Kashan, a town in central Iran, glazed a bowl white and fired it. Then they painted on a paste of metal oxides and sulphur, and fired it again, which pulled the oxygen out of the metals and left a shimmering film. The method is hard to control and often fails, yet Kashan made so many tiles this way that the word for a tile in Persian, which is kashi, comes from the town's name. The writing painted beside the figures is usually poetry.",
+    confidence: "contested",
+    wikidata: null,
+    source: "https://asia.si.edu/explore-art-culture/art-stories/materials-techniques/iridescence/"
+  },
+  {
+    id: "herat-book-workshop",
+    name: "The royal book workshop at Herat",
+    also: ["Timurid book painting","Herat school"],
+    region: "westasia",
+    where: "Herat, western Afghanistan",
+    kind: "painting",
+    start: 1405,
+    end: 1501,
+    startPrecision: "range",
+    endPrecision: "range",
+    dateNote: "The Cleveland Museum of Art dates its Herat manuscript leaves to the early fifteenth century and gives the Timurid period as 1370 to 1501, and no workshop records survive to date the studio itself.",
+    from: [{"id":"timurid-empire","how":"patronised-by"}],
+    to: [],
+    influence: [],
+    peak: 1430,
+    note: "A king's library could be a workshop. At Herat, a city in what is now Afghanistan, a ruler named Shah Rukh kept scribes and painters working on one book at a time. One of those books tells world history from the old prophets down to the king's own reign, which puts him at the end of the story. The paintings use opaque watercolour on paper, with figures in bright robes against pale crags and small trees. Only loose leaves of it survive today, and nobody signed them, so the painters stay nameless.",
+    confidence: "approximate",
+    wikidata: null,
+    source: "https://www.clevelandart.org/art/1931.452"
+  },
+  {
+    id: "chola-bronze-casting",
+    name: "Chola bronze images",
+    also: ["South Indian processional bronzes","Nataraja bronzes"],
+    region: "southasia",
+    where: "Tamil Nadu, southern India",
+    kind: "metalwork",
+    start: 900,
+    end: 1250,
+    startPrecision: "range",
+    endPrecision: "range",
+    dateNote: "The Victoria and Albert Museum dates its dancing Shiva to the twelfth century and the Chola period, and most of these figures carry no inscription, so individual dates come from style rather than records.",
+    from: [{"id":"chola-dynasty","how":"made-under"}],
+    to: [],
+    influence: [],
+    peak: 1100,
+    note: "Look at the base of one and you will find holes. These bronze gods were made in southern India, where a god did not stay in the shrine. Poles went through the holes and the figure was carried out through the streets on festival days. Each was cast in copper mixed with tin, poured around a wax model that melts and runs out. The best known of them shows Shiva, who is a Hindu god, dancing inside a ring of flame. The stone temple stayed put and the god went visiting.",
+    confidence: "approximate",
+    wikidata: null,
+    source: "https://collections.vam.ac.uk/item/O25011/shiva-nataraja-lord-of-the-bronze-sculpture-unknown/"
+  },
+  {
+    id: "hoysala-temple-carving",
+    name: "Hoysala temple carving",
+    also: ["Belur and Halebidu carving","Hoysala sculpture"],
+    region: "southasia",
+    where: "Karnataka, southern India",
+    kind: "sculpture",
+    start: 1100,
+    end: 1300,
+    startPrecision: "range",
+    endPrecision: "range",
+    dateNote: "UNESCO dates the three Hoysala temples on its list to the twelfth and thirteenth centuries and gives no single year for any of them.",
+    from: [],
+    to: [],
+    influence: [],
+    peak: 1150,
+    note: "Most carvers of the period stayed anonymous, but these ones signed their work. Three temples in what is now Karnataka, in southern India, are covered from base to roof in figures cut from a soft green stone that hardens in air. Bands of carving run right round each building, telling stories from religious poems one scene at a time. One favourite shows a man named Sala killing a tiger. Count the signatures and you have a list of who did the work.",
+    confidence: "approximate",
+    wikidata: null,
+    source: "https://whc.unesco.org/en/list/1670/"
+  },
+  {
+    id: "indian-block-printed-cotton",
+    name: "Indian block-printed cotton",
+    also: ["the Newberry textiles","Gujarati printed cloth"],
+    region: "southasia",
+    where: "Gujarat in western India, found in Egypt",
+    kind: "textile",
+    start: 1200,
+    end: 1600,
+    startPrecision: "contested",
+    endPrecision: "contested",
+    dateNote: "The Ashmolean Museum's catalogue of the Newberry collection reports a proposed range of 1200 to 1600, says the chronology is still far from firmly established, and notes that firm evidence sits mostly in the later Mamluk period.",
+    from: [],
+    to: [],
+    influence: [{"id":"indian-ocean-trade","what":"printed Indian cloth turning up thousands of kilometres away as an ordinary traded good"}],
+    peak: 1400,
+    note: "Cloth rots, so most of what people wore has vanished. That is also why a heap of printed cotton bought in Cairo, a city in Egypt, matters: around 1,226 fragments ended up in one collection. On style, scholars place most of them in northwestern India, which means cloth printed with carved blocks and dyed, then carried across an ocean. Fifteen pieces went to a laboratory and the dating is still argued over.",
+    confidence: "contested",
+    wikidata: null,
+    source: "https://jameelcentre.ashmolean.org/collection/7/10236/10316"
+  },
+  {
+    id: "song-monumental-landscape",
+    name: "Northern Song monumental landscape painting",
+    also: ["Song landscape painting","monumental landscape style"],
+    region: "eastasia",
+    where: "northern China",
+    kind: "painting",
+    start: 1000,
+    end: 1130,
+    startPrecision: "contested",
+    endPrecision: "contested",
+    dateNote: "The National Palace Museum in Taipei dates Guo Xi's Early Spring to 1072 and Li Tang's Whispering Pines to 1124, and puts Fan Kuan at about 950 to after 1032; the name for the style was applied by later art historians, so the span is a modern judgement.",
+    from: [{"id":"song-dynasty","how":"made-under"}],
+    to: [],
+    influence: [],
+    peak: 1072,
+    note: "These are not pictures of anywhere. Chinese painters of the time worked on tall silk hanging scrolls, and they put a mountain in the middle of each one, towering over tiny travellers and a thread of water. The mountains are invented: the painters looked hard at real rock and weather, then built something that stood for landscape rather than copying a place. Three of the scrolls hang in Taipei, on the island of Taiwan, and a government there named them national treasures in 2012. One is dated 1072, which makes it older than most European oil painting.",
+    confidence: "contested",
+    wikidata: null,
+    source: "https://www.npm.gov.tw/Exhibition-Content.aspx?sno=04011674&l=2"
+  },
+  {
+    id: "goryeo-celadon",
+    name: "Goryeo celadon",
+    also: ["Korean celadon","inlaid celadon"],
+    region: "eastasia",
+    where: "Gangjin and Buan, South Korea",
+    kind: "ceramic",
+    start: 900,
+    end: 1392,
+    startPrecision: "range",
+    endPrecision: "year",
+    dateNote: "The National Museum of Korea puts the start of this pottery at roughly the late ninth to early tenth century, its height in the 1100s and its decline from the mid-1200s, and the Goryeo state itself ended in 1392.",
+    from: [{"id":"goryeo","how":"made-under"}],
+    to: [],
+    influence: [{"id":"joseon","what":"the loss of the old green glaze opening the way to buncheong, the rougher stoneware of the next Korean state"}],
+    peak: 1150,
+    note: "Jade is rare and expensive, and a glaze can imitate it. Korean potters spent two centuries chasing a green so clear that the pot looks like carved stone, and by the 1100s they had it. Then they cut lines into the damp clay and filled the grooves with white and red clay slip, so the pattern sits inside the surface rather than on top. War with the Mongols, who invaded from the north, broke the kilns' run, and the greens went dull and brown. The next Korean state made rougher pots, and nobody matched the old glaze again.",
+    confidence: "approximate",
+    wikidata: null,
+    source: "https://www.museum.go.kr/CHN/contents/E0403000000.do?schM=relic_represent_view&relicId=1193"
+  },
+  {
+    id: "noh-theatre",
+    name: "Noh theatre",
+    also: ["nohgaku","sarugaku no noh"],
+    region: "eastasia",
+    where: "Japan",
+    kind: "tradition",
+    start: 1370,
+    end: 2026,
+    startPrecision: "contested",
+    endPrecision: "year",
+    dateNote: "The Japan Arts Council gives Kan'ami's lifetime as 1333 to 1384 and dates the loss of court and temple patronage to the Onin War of 1467 to 1477; the popular song and dance forms it grew out of have no start date, so the opening here is an estimate.",
+    from: [{"id":"muromachi-shogunate","how":"patronised-by"}],
+    to: [],
+    influence: [],
+    peak: 1420,
+    note: "A twelve year old boy got a theatre company its patron. Japan's military ruler watched him perform, liked what he saw, and paid for the troupe from then on. The boy, Zeami, took his father's village song and dance shows and slowed them right down. What is left is masks, a bare stage and movement that can take minutes to cross a floor. Zeami also wrote down how to do it, which is why companies still perform the plays six hundred years on.",
+    confidence: "contested",
+    wikidata: null,
+    source: "https://www2.ntj.jac.go.jp/unesco/noh/en/history/history2.html"
+  },
+  {
+    id: "angkor-wat",
+    name: "Angkor Wat",
+    also: ["Vrah Vishnulok"],
+    region: "seasia",
+    where: "Siem Reap province, Cambodia",
+    kind: "architecture",
+    start: 1130,
+    end: 1160,
+    startPrecision: "contested",
+    endPrecision: "contested",
+    dateNote: "The APSARA National Authority, the Cambodian government body that runs the site, dates the temple to around the middle of the twelfth century under King Suryavarman II and gives no start or finish year, so both ends here are estimates.",
+    from: [{"id":"khmer-empire","how":"built-by"}],
+    to: [],
+    influence: [],
+    peak: 1150,
+    note: "Dig a moat 190 metres wide and you have moved a great deal of earth, and that is just the ditch around a single building. Angkor Wat is a stone temple in what is now Cambodia, built by the Khmer kings who ruled the region for centuries. Temple and moat together make a rectangle about 1,500 metres by 1,300. At the centre five towers rise over tier after tier of covered walkways. Teams from five countries now work on holding it up.",
+    confidence: "contested",
+    wikidata: null,
+    source: "https://apsaraauthority.gov.kh/our-work/archeological-research-conservation/23"
+  },
+  {
+    id: "sukhothai-walking-buddha",
+    name: "The Sukhothai walking Buddha",
+    also: ["cankrama image","walking Buddha sculpture"],
+    region: "seasia",
+    where: "north-central Thailand",
+    kind: "sculpture",
+    start: 1300,
+    end: 1600,
+    startPrecision: "contested",
+    endPrecision: "contested",
+    dateNote: "Singapore's National Heritage Board catalogues its walking Buddha as fifteenth or sixteenth century bronze, says the dating of several of these images is still questioned, and dates the Sukhothai kingdom to 1200 to 1350.",
+    from: [],
+    to: [],
+    influence: [],
+    peak: 1400,
+    note: "Most religious statues stand, sit or lie down, but these ones walk. Bronze figures made in what is now northern Thailand show the Buddha, the teacher whose ideas became a world religion, in mid-stride with the right foot forward. One hand is raised in a gesture meaning do not be afraid, and the robe is barely there, just a thin outline and a hem that moves. Why the walking pose was chosen is still argued, and so is the date of almost every surviving figure.",
+    confidence: "contested",
+    wikidata: null,
+    source: "https://www.roots.gov.sg/stories-landing/stories/the-singapore-story-through-60-objects/community-and-faith/walking-buddha-sculpture/story"
+  },
+  {
+    id: "vietnamese-blue-and-white",
+    name: "Vietnamese blue-and-white ceramics",
+    also: ["Chu Dau ware","Annamese blue and white"],
+    region: "seasia",
+    where: "Hai Duong and the Red River delta, Vietnam",
+    kind: "ceramic",
+    start: 1300,
+    end: 1600,
+    startPrecision: "range",
+    endPrecision: "range",
+    dateNote: "Vietnam's National Museum of History reads the inscription on its painted jar as the eighth Dai Hoa year, which it equates with 1450, and dates production in the main kiln area to the fourteenth through sixteenth centuries.",
+    from: [{"id":"dai-viet","how":"made-in"}],
+    to: [],
+    influence: [{"id":"indian-ocean-trade","what":"jars painted for export and carried away as ship cargo"}],
+    peak: 1450,
+    note: "Almost no pot from this period tells you who made it, but one does. A jar painted in blue under a clear glaze carries a line of writing naming the person who did the painting, in the district of Nam Sach, in what is now northern Vietnam. The date in it works out to 1450. The jar came up from a wreck on the sea bed off the Vietnamese coast, where it had been cargo. Scholars still argue about whether the name belongs to a man or a woman.",
+    confidence: "approximate",
+    wikidata: null,
+    source: "https://baotanglichsuquocgia.vn/en/Articles/1004/28551/vietnam-national-treasure-ceramic-jug-with-blue-ornaments-of-swan-draw.html"
+  },
+  {
+    id: "nan-madol",
+    name: "Nan Madol",
+    also: ["Nan Madol stone city","Madolenihmw islets"],
+    region: "oceania",
+    where: "Pohnpei, Federated States of Micronesia",
+    kind: "architecture",
+    start: 1200,
+    end: 1500,
+    startPrecision: "range",
+    endPrecision: "range",
+    dateNote: "UNESCO dates the stone building at Nan Madol to between 1200 and 1500, and those dates come from excavation rather than any written record.",
+    from: [],
+    to: [],
+    influence: [],
+    peak: 1400,
+    note: "Somebody built a city on water. Off the coast of Pohnpei, an island in the western Pacific, about a hundred small artificial islets sit inside a reef, walled with boulders and long columns of dark volcanic rock. The columns formed naturally, as six-sided posts, and were quarried elsewhere on the island and brought here. They were laid in crossing courses, one layer along the wall and the next set across it. This was the ceremonial seat of a line of rulers. Everything we know about how it was built comes out of the ground, because nobody wrote it down.",
+    confidence: "approximate",
+    wikidata: null,
+    source: "https://whc.unesco.org/en/list/1503/"
+  },
+  {
+    id: "maori-whakairo",
+    name: "Maori carving",
+    also: ["whakairo","Maori woodcarving"],
+    region: "oceania",
+    where: "Aotearoa New Zealand",
+    kind: "sculpture",
+    start: 1300,
+    end: 2026,
+    startPrecision: "contested",
+    endPrecision: "range",
+    dateNote: "Te Ara, the encyclopedia published by New Zealand's Ministry for Culture and Heritage, dates a carved canoe prow from Taranaki to the fifteenth century but gives no dates for the earliest surviving pieces, so the start is an estimate.",
+    from: [{"id":"east-polynesian-voyaging","how":"carried-from"}],
+    to: [],
+    influence: [],
+    peak: 1800,
+    note: "Wood rots, so the early work is mostly gone. What survives are a few stone pendants, bone reels and carved blades, and they look very like objects from islands thousands of kilometres away in the eastern Pacific, which is the clue. The first carvers in what is now New Zealand were working in a style they had carried with them, and boats kept arriving. Then local things start appearing: a beaked head, a notched edge, and the first curling spirals on a canoe prow from the 1400s. Carvers cut a figure from one piece of timber, head and limbs and all, and they still do.",
+    confidence: "contested",
+    wikidata: null,
+    source: "https://teara.govt.nz/en/whakairo-maori-carving/page-3"
+  },
+  {
+    id: "lapaha-langi-tombs",
+    name: "The royal tombs of Lapaha",
+    also: ["langi of Lapaha","Mu'a tombs"],
+    region: "oceania",
+    where: "Mu'a on Tongatapu, Tonga",
+    kind: "architecture",
+    start: 1250,
+    end: 1800,
+    startPrecision: "contested",
+    endPrecision: "contested",
+    dateNote: "Tonga's nomination to UNESCO's tentative list reports that preliminary work by Geoffrey Clark's team dated a few tombs to roughly 1250 to 1380 and says more samples are needed, while oral tradition traces the ruling line back to about 950.",
+    from: [{"id":"tui-tonga","how":"built-for"}],
+    to: [],
+    influence: [],
+    peak: 1400,
+    note: "Twenty-two flat-topped mounds sit in a field on Tongatapu, the main island of Tonga, in the South Pacific. Each is a stepped earth platform faced with slabs of hard coral, cut and fitted so the corners meet cleanly, with little sign that any machine was used. These are the graves of a line of paramount rulers, and families there still know who lies in which one. Testing put a few of them between about 1250 and 1380, which was earlier than expected. Most are in poor condition, and the names come from genealogies kept by hand.",
+    confidence: "contested",
+    wikidata: null,
+    source: "https://whc.unesco.org/en/tentativelists/5167/"
+  },
+  {
+    id: "amiens-cathedral",
+    name: "Amiens Cathedral",
+    also: ["Notre-Dame d'Amiens"],
+    region: "europe",
+    where: "Amiens, northern France",
+    kind: "architecture",
+    start: 1220,
+    end: 1288,
+    startPrecision: "year",
+    endPrecision: "range",
+    dateNote: "UNESCO dates the main building work to between 1220 and 1288, names the three master builders who followed one another, and puts the added side chapels at 1292 to 1375.",
+    from: [],
+    to: [],
+    influence: [],
+    peak: 1270,
+    note: "Here is a building site that did not drag on. A church at Amiens, in northern France, went up mainly between 1220 and 1288, which is fast for something 145 metres long. Three master builders followed one another and kept to the same plan, so the two halves of the interior match almost exactly. The ceiling of the central aisle is 42 metres above the floor. Walls that high had to be thin, and the gaps were filled with coloured glass. Little of that first glass is still there.",
+    confidence: "approximate",
+    wikidata: null,
+    source: "https://whc.unesco.org/en/list/162/"
+  },
+  {
+    id: "staff-notation",
+    name: "Staff notation and the singing hand",
+    also: ["Guidonian notation","the musical staff","solmization"],
+    region: "europe",
+    where: "northern Italy, spreading across western Europe",
+    kind: "music",
+    start: 1025,
+    end: 2026,
+    startPrecision: "contested",
+    endPrecision: "year",
+    dateNote: "The Library of Congress places Guido of Arezzo in the eleventh century and says the hand diagram tied to his name probably comes from later writers, so the start year here is a convention rather than a record.",
+    from: [],
+    to: [],
+    influence: [],
+    peak: 1200,
+    note: "Before this, a singer learned a melody by hearing it. A monk in eleventh century Italy, a man named Guido of Arezzo, drew parallel lines on a page and put each note on a line or in a space. Height on the page now meant pitch in the ear. He also gave the notes names lifted from the opening words of a hymn, which is where do, re and mi come from. Later teachers wrote those names on the joints of a hand, so a singer could point while singing. The lines are still there on the page today.",
+    confidence: "contested",
+    wikidata: null,
+    source: "https://blogs.loc.gov/music/2021/07/ask-a-medieval-theorist-for-help/"
+  },
+  {
+    id: "opus-anglicanum",
+    name: "English church embroidery",
+    also: ["opus anglicanum","English work"],
+    region: "europe",
+    where: "England, with surviving pieces in Iceland, Norway and Sweden",
+    kind: "textile",
+    start: 1180,
+    end: 1400,
+    startPrecision: "contested",
+    endPrecision: "range",
+    dateNote: "The Victoria and Albert Museum dates the earliest surviving pieces, which are in Iceland, Norway and Sweden, to the late twelfth or early thirteenth century, and its best known English cope to about 1330 to 1350.",
+    from: [],
+    to: [],
+    influence: [],
+    peak: 1330,
+    note: "English embroidery was a luxury export, and a pope went shopping. Workers in England sewed church robes in coloured silk and thread wrapped in gold, with pearls and beads worked in. Bishops wore them to Rome, which is the seat of the pope, and Innocent the Fourth liked them enough to order his own. The oldest surviving examples are not in England at all, but in Iceland, Norway and Sweden, which were a long sea journey away. One is a pair of embroidered stockings, found at Trondheim.",
+    confidence: "contested",
+    wikidata: null,
+    source: "https://www.vam.ac.uk/blog/projects/english-medieval-embroidery-in-the-norse-world"
+  },
+  {
+    id: "mesa-verde-cliff-dwellings",
+    name: "The Mesa Verde cliff dwellings",
+    also: ["Cliff Palace","Long House"],
+    region: "americas",
+    where: "southwestern Colorado, United States",
+    kind: "architecture",
+    start: 1180,
+    end: 1300,
+    startPrecision: "range",
+    endPrecision: "range",
+    dateNote: "The National Park Service dates most of the cliff dwellings to about 1180 to 1300 and says they were lived in for only about a century.",
+    from: [{"id":"ancestral-puebloan-southwest","how":"built-by"}],
+    to: [],
+    influence: [],
+    peak: 1250,
+    note: "People moved house, upwards: for centuries farmers on this high plateau in what is now southwest Colorado lived on top of the mesa, which is a flat tableland. After about 1180 they built into the hollows under the cliffs instead, stacking rooms of shaped stone back into the rock. The largest holds 150 rooms, with timber and plaster balconies that have almost all rotted away. Then they left, and within about a hundred years of the move every one of these places stood empty.",
+    confidence: "approximate",
+    wikidata: null,
+    source: "https://www.nps.gov/meve/learn/historyculture/cliff_dwellings_home.htm"
+  },
+  {
+    id: "mixtec-screenfold-books",
+    name: "Mixtec screenfold books",
+    also: ["Codex Bodley","nee nuhu","Mixtec pictorial manuscripts"],
+    region: "americas",
+    where: "the Mixteca Alta, Oaxaca, Mexico",
+    kind: "book",
+    start: 1250,
+    end: 1521,
+    startPrecision: "contested",
+    endPrecision: "contested",
+    dateNote: "The Bodleian Library dates Codex Bodley to the sixteenth century, probably shortly before 1521, and the histories painted in it reach back several centuries, so the start of the practice is not dated at all.",
+    from: [],
+    to: [],
+    influence: [],
+    peak: 1450,
+    note: "A book you can read without knowing a language. Painters in what is now Oaxaca, in southern Mexico, worked on long strips of deerskin folded like a concertina, so a reader could open two pages or twenty. There is no alphabet in them, so pictures and small signs carry the record: who married whom, who inherited, who fought. One surviving book gives the ruling families of two towns, one line of them on each side of the strip. Of all the books made this way, sixteen are left.",
+    confidence: "contested",
+    wikidata: null,
+    source: "https://medieval.bodleian.ox.ac.uk/catalog/manuscript_7875"
+  },
+  {
+    id: "andean-khipu",
+    name: "Andean knotted-cord records",
+    also: ["khipu","quipu"],
+    region: "americas",
+    where: "Peru, Bolivia, Ecuador and northern Chile",
+    kind: "writing",
+    start: 600,
+    end: 2026,
+    startPrecision: "range",
+    endPrecision: "range",
+    dateNote: "Dumbarton Oaks splits these objects into three groups, 600 to 1000, 1450 to 1534 and 1534 to the present, and dates nothing between 1000 and 1450, so the middle of this span rests on nothing.",
+    from: [],
+    to: [],
+    influence: [{"id":"inca-empire","what":"the counting system that carried the state's population and tax records"}],
+    peak: 1500,
+    note: "Here is a filing system made of string: a thick cord carries a row of hanging cords, and each hanging cord carries knots. Position along the cord sets the place value, so a knot high up counts for more than one lower down, exactly as a digit does. Colour carried meaning too. Specially trained men kept them at every level of government in the Andes, which is the mountain chain along the western edge of South America, recording population and tax. Duplicates were made, which suggests somebody expected cheating.",
+    confidence: "contested",
+    wikidata: null,
+    source: "https://www.doaks.org/resources/online-exhibits/written-in-knots"
+  }
+];
+
 </script>
 <script>
 (function () {
   'use strict';
   var ERAS = [
-    { key:'manycenters', name:'Many centers at once', a:1000, b:1450, set:window.HOE_ENTITIES_MANYCENTERS },
+    { key:'manycenters', name:'Many centers at once', a:1000, b:1450,
+      set:(window.HOE_ENTITIES_MANYCENTERS||[]).concat(window.HOE_ENTITIES_CULTURE_1000_1450||[]) },
     { key:'oceans',      name:'Oceans join and divide', a:1450, b:1750, set:window.HOE_ENTITIES_OCEANS },
     { key:'speeds',      name:'The world speeds up',    a:1750, b:1914, set:window.HOE_ENTITIES_SPEEDS },
     { key:'frequency',   name:'A century on every frequency', a:1914, b:1991, set:window.HOE_ENTITIES_FREQUENCY },
@@ -8506,6 +9025,20 @@ window.HOE_CAUSES = [
     var total = ERAS.reduce(function(s,e){ return s+e.set.length; },0), run=0;
     ERAS.forEach(function(e){ e.p0=run; run+=e.set.length/total; e.p1=run; });
   })();
+  /* every kind of thing on the site, sorted into six families a person can hold
+     in their head. A kind that is not listed falls into 'other'. */
+  var GENRES = [
+    { key:'power',  name:'Power and states', kinds:['empire','state','city','polity-group','alliance','conflict','event'] },
+    { key:'art',    name:'Art and building', kinds:['architecture','sculpture','ceramic','painting','metalwork','textile','craft','style'] },
+    { key:'words',  name:'Words and music',  kinds:['book','writing','music','tradition','culture'] },
+    { key:'trade',  name:'Trade and tools',  kinds:['network','technology','company'] },
+    { key:'ideas',  name:'Ideas and groups', kinds:['institution','programme','movement'] },
+    { key:'earth',  name:'Earth and body',   kinds:['climate','pandemic'] }
+  ];
+  var GENRE_OF = {};
+  GENRES.forEach(function (g) { g.kinds.forEach(function (k) { GENRE_OF[k] = g.key; }); });
+  function genreOf(e) { return GENRE_OF[e.kind] || 'other'; }
+
   var REGIONS = [
     { key: 'africa', name: 'Africa' },
     { key: 'westasia', name: 'West Asia' },
@@ -8529,7 +9062,9 @@ window.HOE_CAUSES = [
   var ROW = 23, BAR = 15, LANE_GAP = 16;
 
   var state = { conf: { firm: 1, approximate: 1, contested: 1 }, links: false, table: false, q: '', sel: null,
-                on: { africa: 1, europe: 1, eastasia: 1 } };
+                on: { africa: 1, europe: 1, eastasia: 1 }, gen: {} };
+  GENRES.forEach(function (g) { state.gen[g.key] = 1; });
+  state.gen.other = 1;
 
   var svg = document.getElementById('chart');
   var scrubLine = null, scrubLbl = null, scrubPad = null, scrubYear = null;
@@ -8569,6 +9104,7 @@ window.HOE_CAUSES = [
   }
   function visible(e) {
     if (!state.on[e.region]) return false;
+    if (!state.gen[genreOf(e)]) return false;
     if (!state.conf[e.confidence]) return false;
     if (state.q) {
       var hay = (e.name + ' ' + (e.also || []).join(' ') + ' ' + e.where + ' ' + e.kind + ' ' + (e.note || '')).toLowerCase();
@@ -8960,6 +9496,28 @@ window.HOE_CAUSES = [
   }
   document.getElementById('rAll').addEventListener('click', function () { setAll(1); });
   document.getElementById('rNone').addEventListener('click', function () { setAll(0); });
+
+  /* ---------- kind nav ---------- */
+  var gb = document.getElementById('gbtns');
+  GENRES.forEach(function (g) {
+    var b = document.createElement('button');
+    b.setAttribute('aria-pressed', String(!!state.gen[g.key]));
+    b.appendChild(document.createTextNode(g.name));
+    b.addEventListener('click', function () {
+      state.gen[g.key] = !state.gen[g.key];
+      b.setAttribute('aria-pressed', String(!!state.gen[g.key]));
+      closeStack(); render(); buildTable();
+    });
+    gb.appendChild(b);
+  });
+  function setAllG(v) {
+    GENRES.forEach(function (g) { state.gen[g.key] = v; });
+    state.gen.other = v;
+    Array.prototype.forEach.call(gb.children, function (b) { b.setAttribute('aria-pressed', String(v)); });
+    closeStack(); render(); buildTable();
+  }
+  document.getElementById('gAll').addEventListener('click', function () { setAllG(1); });
+  document.getElementById('gNone').addEventListener('click', function () { setAllG(0); });
 
   /* ---------- drag the timeline sideways ---------- */
   var wrap = document.getElementById('chartWrap'), hgrab = null;
