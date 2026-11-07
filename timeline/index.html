@@ -287,14 +287,14 @@ td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
 <div id="tip" hidden></div>
 
 <script>
-/* Anytime Machine : structured entities for the manycenters era, 1000 to 1450 CE.
-   Succession (from/to), influence and no-contact are deliberately kept apart.
-   Dates run past the window edges on purpose so the timeline can draw them leaving. */
 window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "mali-empire",
     name: "Mali empire",
-    also: ["Manden Kurufaba","Mali"],
+    also: [
+      "Manden Kurufaba",
+      "Mali"
+    ],
     region: "africa",
     where: "Mali, Senegal, Guinea and southern Mauritania",
     kind: "empire",
@@ -303,9 +303,19 @@ window.HOE_ENTITIES_MANYCENTERS = [
     startPrecision: "contested",
     endPrecision: "range",
     dateNote: "Sundiata's victory over Sosso is conventionally put at 1235 but rests on oral tradition recorded centuries later, and the Met dates the shrinking of Mali back to its home territory to about 1645.",
-    from: [{"id":"sosso-kingdom","how":"conquered-by"}],
+    from: [
+      {
+        id: "sosso-kingdom",
+        how: "conquered-by"
+      }
+    ],
     to: [],
-    influence: [{"id":"trans-saharan-gold-routes","what":"gold in such quantity that Mansa Musa's 1324 spending in Cairo moved the price"}],
+    influence: [
+      {
+        id: "trans-saharan-gold-routes",
+        what: "gold in such quantity that Mansa Musa's 1324 spending in Cairo moved the price"
+      }
+    ],
     peak: 1325,
     note: "Here is how you end up on a map. Mali was an empire in West Africa that got rich the way a toll booth gets rich: the gold and salt crossing the Sahara desert had to pass through, and Mali taxed it. In 1324 its ruler, the mansa, travelled to Mecca, which is the holy city of Islam, and gave away so much gold in Cairo on the way that gold lost value in Egypt for years. Traders talk. About fifty years later a mapmaker in Majorca named Abraham Cresques drew him on a throne holding a nugget, and that is how Mali got onto a European map.",
     confidence: "approximate",
@@ -315,7 +325,9 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "great-zimbabwe",
     name: "Great Zimbabwe",
-    also: ["Zimbabwe plateau state"],
+    also: [
+      "Zimbabwe plateau state"
+    ],
     region: "africa",
     where: "southeastern Zimbabwe",
     kind: "city",
@@ -326,7 +338,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     dateNote: "UNESCO dates the stone town to between 1100 and 1450, and both ends are radiocarbon ranges rather than events.",
     from: [],
     to: [],
-    influence: [{"id":"kilwa-sultanate","what":"gold and ivory out through Sofala, with Persian and Chinese ceramics coming inland"}],
+    influence: [
+      {
+        id: "kilwa-sultanate",
+        what: "gold and ivory out through Sofala, with Persian and Chinese ceramics coming inland"
+      }
+    ],
     peak: 1350,
     note: "No mortar. Great Zimbabwe was a stone-walled city in southern Africa, built by Shona-speaking farmers and herders who worked the gold-bearing plateau around it. Its walls were laid dry, block on block, each stone held in place by nothing but its own weight. More than ten thousand people lived inside them in the 1300s. The ruins keep giving up Chinese and Persian porcelain and Arab coins, which is how archaeologists know that a town in the hills was buying goods made thousands of kilometres away.",
     confidence: "approximate",
@@ -336,7 +353,9 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "kilwa-sultanate",
     name: "Kilwa sultanate",
-    also: ["Kilwa Kisiwani"],
+    also: [
+      "Kilwa Kisiwani"
+    ],
     region: "africa",
     where: "southern Tanzania",
     kind: "city",
@@ -357,7 +376,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "swahili-coast",
     name: "Swahili coast towns",
-    also: ["Swahili city-states","Mombasa, Lamu, Pate, Sofala"],
+    also: [
+      "Swahili city-states",
+      "Mombasa, Lamu, Pate, Sofala"
+    ],
     region: "africa",
     where: "the coast from Somalia to Mozambique",
     kind: "polity-group",
@@ -378,7 +400,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "zagwe-dynasty",
     name: "Zagwe dynasty",
-    also: ["Zague","Lalibela kings"],
+    also: [
+      "Zague",
+      "Lalibela kings"
+    ],
     region: "africa",
     where: "the Ethiopian highlands",
     kind: "state",
@@ -386,20 +411,29 @@ window.HOE_ENTITIES_MANYCENTERS = [
     end: 1270,
     startPrecision: "contested",
     endPrecision: "year",
-    dateNote: "Britannica describes the Zagwe only as twelfth and thirteenth century kings, so 1137 is a convention; the rock-hewn churches at Lalibela have no secure construction date at all.",
+    dateNote: "Volume III of UNESCO's General History of Africa, edited by M. El Fasi, puts the rise of the Zagwe in the twelfth century and records a tradition dating the line to the tenth or eleventh century, so 1137 is a convention no volume supplies. Volume IV, edited by D. T. Niane, dates the handover to the Solomonid line to 1270.",
     from: [],
-    to: [{"id":"solomonic-ethiopia","how":"succeeded"}],
+    to: [
+      {
+        id: "solomonic-ethiopia",
+        how: "succeeded"
+      }
+    ],
     influence: [],
     peak: 1200,
-    note: "A church with no foundation is very hard to date. The Zagwe were a line of Christian kings who ruled the Ethiopian highlands in the 1100s and 1200s. Their most famous king, Lalibela, had eleven churches cut straight down into solid rock. Doors, windows, columns and roofs were carved out of the stone rather than built up from it. He meant the place as a new Jerusalem, because Muslim conquests had cut Ethiopian pilgrims off from the Holy Land. The churches are still there, and nobody can say for certain which century finished them.",
+    note: "A king who cannot reach Jerusalem can build his own. The Zagwe were a line of Christian kings who held the highlands of northern Ethiopia, and their own homeland was the Agaw country of Wag and Lasta. Their most famous king was Lalibela, who ruled from about 1181 to about 1221. Ethiopia had been cut off from Alexandria in Egypt, the seat of its church. So Lalibela founded a new capital, named it New Jerusalem, and meant it as a place his own subjects could reach on pilgrimage. The church of Saint George there was not built up from the ground but cut down out of it.",
     confidence: "contested",
     wikidata: null,
-    source: "https://www.britannica.com/topic/Zagwe-dynasty"
+    source: "https://unesdoc.unesco.org/ark:/48223/pf0000184282#page=590",
+    sourceLabel: "UNESCO General History of Africa, Volume III"
   },
   {
     id: "solomonic-ethiopia",
     name: "Solomonic dynasty of Ethiopia",
-    also: ["Solomonid dynasty","Ethiopian empire"],
+    also: [
+      "Solomonid dynasty",
+      "Ethiopian empire"
+    ],
     region: "africa",
     where: "Ethiopia",
     kind: "state",
@@ -407,20 +441,30 @@ window.HOE_ENTITIES_MANYCENTERS = [
     end: 1974,
     startPrecision: "year",
     endPrecision: "year",
-    dateNote: "",
-    from: [{"id":"zagwe-dynasty","how":"succeeded"}],
+    dateNote: "Volume IV of UNESCO's General History of Africa, edited by D. T. Niane, puts the end of the Zagwe and the rise of Yikunno-Amlak at 1270, and the 2025 Volume IX, edited by A. F. C. Holl, gives his reign as 1270 to 1285. Volume V, edited by B. A. Ogot, says the line carried the Solomonid name until 1974.",
+    from: [
+      {
+        id: "zagwe-dynasty",
+        how: "succeeded"
+      }
+    ],
     to: [],
     influence: [],
     peak: 1450,
-    note: "A family story can hold a throne for seven hundred years. In 1270 a king named Yekuno Amlak took the Ethiopian throne and said his line came down from Menelik, whom Ethiopian tradition names as the son of King Solomon and the Queen of Sheba. The claim was written into a book in the 1300s, the Kebra Nagast, meaning the Glory of the Kings. Every emperor after him stood on it. The last of them, Haile Selassie, was pushed out in 1974.",
+    note: "A family story can hold a throne for seven hundred years. In 1270 a king named Yekuno Amlak took the Ethiopian throne and said his line came down from Menelik, whom Ethiopian tradition names as the son of King Solomon and the Queen of Sheba. The claim was written into a book compiled about 1300, the Kebra Nagast, meaning the Glory of the Kings. Every emperor after him stood on it. The last of them, Haile Selassie, was pushed out in 1974.",
     confidence: "firm",
     wikidata: null,
-    source: "https://www.britannica.com/topic/Solomonid-dynasty"
+    source: "https://unesdoc.unesco.org/ark:/48223/pf0000184287#page=454",
+    sourceLabel: "UNESCO General History of Africa, Volume IV"
   },
   {
     id: "kanem-bornu",
     name: "Kanem-Bornu",
-    also: ["Kanem","Bornu","Sayfawa dynasty"],
+    also: [
+      "Kanem",
+      "Bornu",
+      "Sayfawa dynasty"
+    ],
     region: "africa",
     where: "Chad, northeastern Nigeria and Niger",
     kind: "state",
@@ -428,20 +472,24 @@ window.HOE_ENTITIES_MANYCENTERS = [
     end: 1846,
     startPrecision: "contested",
     endPrecision: "year",
-    dateNote: "Britannica says Kanem was probably founded about the middle of the ninth century while its own date range starts at 926; the capital moved from Kanem to Bornu in the late fourteenth century, which some accounts treat as two separate states.",
+    dateNote: "Volume IV of UNESCO's General History of Africa, edited by D. T. Niane, has Arab sources naming Kanem from the ninth century onwards, puts the kingdom's own origins as far back as the end of the sixth century, and dates the Sefuwa dynasty only from the second half of the eleventh. Volume VI, edited by J. F. A. Ajayi, dates the destruction of that dynasty to 1846.",
     from: [],
     to: [],
     influence: [],
     peak: 1250,
-    note: "One family held the same throne for a thousand years. The Sef ruled Kanem-Bornu, a state built around Lake Chad in what is now Chad, northern Nigeria and Niger, from about the ninth century until 1846. Its kings, titled mai, became Muslim in the late 1000s and grew rich moving goods between North Africa and the lands south of the desert. When a rival people pushed them out of Kanem in the late 1300s, they moved the capital west into Bornu. Then they carried on for another four hundred years.",
-    confidence: "approximate",
+    note: "One family held the same throne for nearly eight hundred years. Kanem was a kingdom around Lake Chad, in what is now Chad, northern Nigeria and Niger. A line called the Sefuwa took it from the ruling Zaghawa in the later 1000s, and its first king, Hummay, came from a Muslim community. Their kings, who held the title mai, grew rich moving goods between North Africa and the lands below the desert. Pushed out of Kanem in the late 1300s, they shifted the capital west into Bornu. The last mai was killed in 1846.",
+    confidence: "contested",
     wikidata: null,
-    source: "https://www.britannica.com/place/Kanem-Bornu"
+    source: "https://unesdoc.unesco.org/ark:/48223/pf0000184287#page=262",
+    sourceLabel: "UNESCO General History of Africa, Volume IV"
   },
   {
     id: "ife",
     name: "Ile-Ife",
-    also: ["Ife","Ife kingdom"],
+    also: [
+      "Ife",
+      "Ife kingdom"
+    ],
     region: "africa",
     where: "southwestern Nigeria",
     kind: "city",
@@ -452,7 +500,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     dateNote: "The city is older than this, perhaps from about 500, but its flourishing and its sculpture are dated to roughly 1050 to 1450, and the reasons for its decline are unknown.",
     from: [],
     to: [],
-    influence: [{"id":"benin-kingdom","what":"ideas of kingship and the lost-wax brass casting tradition"}],
+    influence: [
+      {
+        id: "benin-kingdom",
+        what: "ideas of kingship, though whether brass casting travelled with them is disputed"
+      }
+    ],
     peak: 1300,
     note: "When Europeans first saw the brass heads from Ile-Ife, they decided African artists could not have made them and invented foreign sculptors instead. Ile-Ife is a city in southwestern Nigeria and the place the Yoruba people hold to be where the world began. Between about 1050 and 1450 its artists made life-size human heads in brass and fired clay by the lost-wax method: model the head in wax, pack it in clay, melt the wax out, pour metal into the gap. The faces are calm and lifelike. Four hundred years of practice went into them.",
     confidence: "approximate",
@@ -462,7 +515,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "benin-kingdom",
     name: "Kingdom of Benin",
-    also: ["Edo kingdom","Benin City"],
+    also: [
+      "Edo kingdom",
+      "Benin City"
+    ],
     region: "africa",
     where: "southern Nigeria",
     kind: "state",
@@ -470,42 +526,51 @@ window.HOE_ENTITIES_MANYCENTERS = [
     end: 1897,
     startPrecision: "contested",
     endPrecision: "year",
-    dateNote: "Britannica's own figures give about 1201 while other sources give 1180, and the tradition that a prince of Ife founded the line is a dynastic claim rather than a dated event.",
+    dateNote: "Volume IV of UNESCO's General History of Africa, edited by D. T. Niane, says Benin probably became a kingdom perhaps in the twelfth century, and puts the arrival of the Ife prince its tradition credits with founding the royal line at probably around 1300. Volume VII, edited by A. Adu Boahen, dates the British sack of the capital to 1897.",
     from: [],
     to: [],
     influence: [],
     peak: 1500,
-    note: "Borrowing is not the same as inheriting. Benin was a kingdom in southern Nigeria whose king was called the oba, with its capital at Benin City, and Edo tradition says the royal line began when a prince from the city of Ife was invited in to rule. Benin took that story of kingship, and the brass-casting skill that came with it. Ife never governed Benin. Oba Ewuare, who ruled from about 1440 to 1480, ringed his capital with great walls and moats, which is what a king does when the power is his own.",
-    confidence: "approximate",
+    note: "Borrowing is not the same as inheriting. Benin was a kingdom in southern Nigeria whose king was called the oba, and its capital was the city now called Benin City. Both Benin and Yoruba tradition say the royal line began when a prince was invited in from Ife, a city to the north-west. Ife never governed Benin. In the 1400s an oba named Ewuare rebuilt the capital behind a huge ditch and rampart, which is what a king does when the power is his own.",
+    confidence: "contested",
     wikidata: null,
-    source: "https://www.britannica.com/place/Benin-historical-kingdom-West-Africa"
+    source: "https://unesdoc.unesco.org/ark:/48223/pf0000184287#page=375",
+    sourceLabel: "UNESCO General History of Africa, Volume IV"
   },
   {
     id: "almohad-caliphate",
     name: "Almohad caliphate",
-    also: ["al-Muwahhidun","Almohads"],
+    also: [
+      "al-Muwahhidun",
+      "Almohads"
+    ],
     region: "africa",
-    alsoRegions: ["europe"],
+    alsoRegions: [
+      "europe"
+    ],
     where: "Morocco, Algeria, Tunisia and southern Spain",
     kind: "empire",
     start: 1130,
     end: 1269,
     startPrecision: "contested",
     endPrecision: "year",
-    dateNote: "Britannica dates the dynasty from about 1130, the death of its founder Ibn Tumart, to about 1269, when Marrakesh fell to the Marinids.",
+    dateNote: "Volume IV of UNESCO's General History of Africa, edited by D. T. Niane, dates the death of the Almohad founder Ibn Tumart to 1130 and his successor's accession to 1133, while a later chapter of the same volume frames the Almohad era as 1147 to 1269. Every chapter that touches it agrees the Marinids took Marrakesh in 1269.",
     from: [],
     to: [],
     influence: [],
     peak: 1195,
-    note: "Two towers, two continents, one government. The Almohads were a Muslim movement out of the Moroccan mountains whose leader claimed the title caliph, meaning the single religious and political head of all Muslims. By the 1100s they ruled Morocco, Algeria, Tunisia and southern Spain. They put up two enormous square minarets, the towers from which the call to prayer is made: the Koutoubia in Marrakesh and the Giralda in Seville, finished in 1198. Stand under either one and you are looking at the same idea, built on two continents.",
-    confidence: "firm",
+    note: "Two towers, two continents, one government. The Almohads were a Muslim movement out of the Moroccan mountains whose rulers claimed the title caliph, the single religious and political head of all Muslims. At their height they held everything from Tripoli in Libya to Seville in Spain. They built two great square minarets, the towers from which the call to prayer is made. The one at the Mosque of the Booksellers in Marrakesh climbs more than 67 metres, and its twin is the Giralda in Seville. Stand under either and you are looking at the same idea, raised on two continents.",
+    confidence: "contested",
     wikidata: null,
-    source: "https://www.britannica.com/topic/Almohads"
+    source: "https://unesdoc.unesco.org/ark:/48223/pf0000184287#page=56",
+    sourceLabel: "UNESCO General History of Africa, Volume IV"
   },
   {
     id: "mamluk-sultanate",
     name: "Mamluk sultanate",
-    also: ["Mamluks of Egypt"],
+    also: [
+      "Mamluks of Egypt"
+    ],
     region: "africa",
     where: "Egypt and Syria",
     kind: "state",
@@ -513,22 +578,33 @@ window.HOE_ENTITIES_MANYCENTERS = [
     end: 1517,
     startPrecision: "year",
     endPrecision: "year",
-    dateNote: "",
-    from: [{"id":"ayyubid-sultanate","how":"succeeded"}],
+    dateNote: "Volume IV of UNESCO's General History of Africa, edited by D. T. Niane, dates the Mamluk seizure of power to the killing of the last Ayyubid ruler of Egypt in May 1250, and the Ottoman conquest to 1517. The 2025 Volume IX, edited by A. F. C. Holl, restates the span as 1250 to 1517.",
+    from: [
+      {
+        id: "ayyubid-sultanate",
+        how: "succeeded"
+      }
+    ],
     to: [],
     influence: [],
     peak: 1300,
-    note: "Mamluk is an Arabic word meaning owned. Mamluks were enslaved boys, mostly Turkish-speaking, raised as soldiers on horseback for the Muslim rulers of Egypt. In 1250 they took the throne for themselves and ran Egypt and Syria, which they held for 267 years. On 3 September 1260, at Ain Jalut in Palestine, a Mamluk army beat the Mongols and stopped their advance into the Middle East. Men who had been somebody's property went on to hold the spice trade for two centuries.",
+    note: "A bought soldier can end up owning the country. Mamluks were the enslaved soldiers of Egypt's rulers, bought and trained so that their fortunes rose and fell with their master's. In 1250 the last prince of the old ruling family was killed, and they took Egypt for themselves until 1517. They also controlled the spice road, which carried Asian goods to the Mediterranean sea. In 1425 their sultan, who ruled Egypt and Syria, made that trade a state monopoly. Venetian merchants, who claimed two-thirds of Egypt's imports, now bought at prices he set.",
     confidence: "firm",
     wikidata: null,
-    source: "https://www.britannica.com/topic/Mamluk"
+    source: "https://unesdoc.unesco.org/ark:/48223/pf0000184287#page=403",
+    sourceLabel: "UNESCO General History of Africa, Volume IV"
   },
   {
     id: "trans-saharan-gold-routes",
     name: "Trans-Saharan gold and salt routes",
-    also: ["Saharan caravan trade"],
+    also: [
+      "Saharan caravan trade"
+    ],
     region: "africa",
-    alsoRegions: ["westasia","europe"],
+    alsoRegions: [
+      "westasia",
+      "europe"
+    ],
     where: "across the Sahara between West Africa and the Mediterranean",
     kind: "network",
     start: 700,
@@ -538,7 +614,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     dateNote: "The Met titles the trade the seventh to fourteenth centuries while its own text reaches back to the fifth century and on into the sixteenth; a caravan network has no founding date.",
     from: [],
     to: [],
-    influence: [{"id":"mali-empire","what":"salt and goods south, gold north, and Islam travelling with the merchants"}],
+    influence: [
+      {
+        id: "mali-empire",
+        what: "salt and goods south, gold north, and Islam travelling with the merchants"
+      }
+    ],
     peak: 1350,
     note: "Salt is not optional. People have to eat it and the tropics do not supply it, so it was cut in slabs at desert mines, one of them called Taghaza, and hauled south across the whole desert. Gold came the other way, out of the rivers and forests of southern West Africa. Camel caravans had been crossing the Sahara, the largest hot desert on Earth, along fixed routes since about the eighth century. The empires sitting in the middle, Ghana and then Mali, got rich without digging anything out of the ground. They taxed both loads as they went past.",
     confidence: "approximate",
@@ -548,7 +629,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "abbasid-caliphate",
     name: "Abbasid caliphate",
-    also: ["Abbasids","caliphate of Baghdad"],
+    also: [
+      "Abbasids",
+      "caliphate of Baghdad"
+    ],
     region: "westasia",
     where: "Iraq and Iran",
     kind: "empire",
@@ -558,7 +642,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     endPrecision: "year",
     dateNote: "A line of Abbasid caliphs continued in Cairo as figureheads under the Mamluks until 1517, which is why some tables do not end at 1258.",
     from: [],
-    to: [{"id":"mongol-empire","how":"conquered-by"}],
+    to: [
+      {
+        id: "mongol-empire",
+        how: "conquered-by"
+      }
+    ],
     influence: [],
     peak: 850,
     note: "By 1200 the caliph of Baghdad ruled little more than Iraq, while other rulers did as they pleased. A caliph was the one man meant to lead all Muslims, in religion and in government. The Abbasid family had held that title for five hundred years from Baghdad, a city they built in Iraq. The title still carried weight long after the power behind it was gone. So when a Mongol army sacked Baghdad in 1258 and killed the last caliph there, what died was an idea rather than an empire.",
@@ -569,7 +658,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "great-seljuk-empire",
     name: "Great Seljuq empire",
-    also: ["Seljuks","Seljuqs of Iran"],
+    also: [
+      "Seljuks",
+      "Seljuqs of Iran"
+    ],
     region: "westasia",
     where: "Iran, Iraq and Central Asia",
     kind: "empire",
@@ -590,7 +682,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "khwarazmian-empire",
     name: "Khwarazmian empire",
-    also: ["Khwarezm-Shahs","Khwarazm"],
+    also: [
+      "Khwarezm-Shahs",
+      "Khwarazm"
+    ],
     region: "westasia",
     where: "Uzbekistan, Turkmenistan and Iran",
     kind: "empire",
@@ -600,7 +695,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     endPrecision: "year",
     dateNote: "Britannica gives only the late eleventh to the early thirteenth century; the line began as a Seljuq provincial governorship, so its start is a matter of where you decide a governor became a king.",
     from: [],
-    to: [{"id":"mongol-empire","how":"conquered-by"}],
+    to: [
+      {
+        id: "mongol-empire",
+        how: "conquered-by"
+      }
+    ],
     influence: [],
     peak: 1215,
     note: "Do not rob the wrong caravan. The Khwarazmians ruled a rich empire of walled desert cities in what is now Uzbekistan, Turkmenistan and Iran. Their line began as governors working for the Seljuq sultans, rulers whose title meant holder of power, and then made itself royal. In 1218 one of their frontier governors seized a trade caravan and killed the envoys of Genghis Khan, the Mongol ruler. The armies that answered erased Merv and Nishapur, which were two of the biggest cities in the Islamic world, and the empire was gone by 1231.",
@@ -611,7 +711,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "ayyubid-sultanate",
     name: "Ayyubid sultanate",
-    also: ["Ayyubids","Saladin's dynasty"],
+    also: [
+      "Ayyubids",
+      "Saladin's dynasty"
+    ],
     region: "westasia",
     where: "Egypt, Syria and the Hejaz",
     kind: "state",
@@ -621,7 +724,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     endPrecision: "year",
     dateNote: "Britannica dates the dynasty in Egypt 1171 to 1250 and says it persisted in parts of Syria until 1260, so the single end year hides a split.",
     from: [],
-    to: [{"id":"mamluk-sultanate","how":"succeeded"}],
+    to: [
+      {
+        id: "mamluk-sultanate",
+        how: "succeeded"
+      }
+    ],
     influence: [],
     peak: 1190,
     note: "Saladin is remembered for one year. In 1187 he beat the crusaders, western European Christians who had come to take the Holy Land, and won Jerusalem back. He was a Kurdish general who had made himself sultan, meaning ruler, of Egypt in 1171 and then of Syria as well, and the state he left behind governed Egypt, Syria and the Arabian coast for about eighty years. It was ended by its own household troops, enslaved soldiers called Mamluks, who took the throne in 1250. The guards you train to protect you are also the guards nearest the throne.",
@@ -632,7 +740,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "ilkhanate",
     name: "Ilkhanate",
-    also: ["Il-Khanids","Mongol Iran"],
+    also: [
+      "Il-Khanids",
+      "Mongol Iran"
+    ],
     region: "westasia",
     where: "Iran, Iraq and the Caucasus",
     kind: "state",
@@ -641,9 +752,19 @@ window.HOE_ENTITIES_MANYCENTERS = [
     startPrecision: "year",
     endPrecision: "year",
     dateNote: "",
-    from: [{"id":"mongol-empire","how":"split-from"}],
+    from: [
+      {
+        id: "mongol-empire",
+        how: "split-from"
+      }
+    ],
     to: [],
-    influence: [{"id":"timurid-empire","what":"Persianate court painting, tilework and the observatory tradition"}],
+    influence: [
+      {
+        id: "timurid-empire",
+        what: "Persianate court painting, tilework and the observatory tradition"
+      }
+    ],
     peak: 1300,
     note: "Three years after taking Iran, the Mongols there built an observatory, which is a place for measuring where the stars are. The Ilkhanate was the slice of the Mongol empire that went to Hulegu, a grandson of Genghis Khan: Iran, Iraq and the Caucasus. His line were called the Ilkhans, the lesser khans, and khan simply means ruler. At that observatory, in a town called Maragha, the astronomer Nasir al-Din al-Tusi worked out how to describe a planet's motion using one circle turning inside another. Whether the Polish astronomer Copernicus borrowed that is argued to this day.",
     confidence: "firm",
@@ -653,9 +774,15 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "crusades",
     name: "The Crusades and the Latin East",
-    also: ["Crusader states","Outremer","Kingdom of Jerusalem"],
+    also: [
+      "Crusader states",
+      "Outremer",
+      "Kingdom of Jerusalem"
+    ],
     region: "westasia",
-    alsoRegions: ["westasia"],
+    alsoRegions: [
+      "westasia"
+    ],
     where: "the Levant, Egypt, Anatolia and Constantinople",
     kind: "event",
     start: 1095,
@@ -665,7 +792,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     dateNote: "1095 is Urban II's sermon at Clermont and 1291 is the fall of Acre; crusading as an idea carried on for centuries after the last Latin state was gone.",
     from: [],
     to: [],
-    influence: [{"id":"latin-empire","what":"the Fourth Crusade turned aside from Egypt and put a Latin emperor in Constantinople"}],
+    influence: [
+      {
+        id: "latin-empire",
+        what: "the Fourth Crusade turned aside from Egypt and put a Latin emperor in Constantinople"
+      }
+    ],
     peak: 1180,
     note: "Strictly speaking, the Crusades were armed pilgrimages. From 1095, when Pope Urban II called for the first one, western European nobles took a religious vow and sailed east to seize Jerusalem. There was never a crusader country, only a recurring flood of vows, ships, money and men, though the small kingdoms they set up on the Levant coast, which is the eastern shore of the Mediterranean, lasted until 1291. A vow tells you where a man thinks he is going and nothing about where he arrives. In 1204 one of these expeditions sacked Constantinople, which was a Christian city.",
     confidence: "firm",
@@ -675,7 +807,11 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "timurid-empire",
     name: "Timurid empire",
-    also: ["Timur","Tamerlane","Timurids"],
+    also: [
+      "Timur",
+      "Tamerlane",
+      "Timurids"
+    ],
     region: "westasia",
     where: "Central Asia, Iran and Afghanistan",
     kind: "empire",
@@ -696,9 +832,16 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "black-death",
     name: "The Black Death",
-    also: ["the great pestilence","the plague of 1347"],
+    also: [
+      "the great pestilence",
+      "the plague of 1347"
+    ],
     region: "westasia",
-    alsoRegions: ["eastasia","europe","africa"],
+    alsoRegions: [
+      "eastasia",
+      "europe",
+      "africa"
+    ],
     where: "from the Tian Shan foothills to Europe, West Asia and North Africa",
     kind: "pandemic",
     start: 1346,
@@ -718,9 +861,16 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "silk-roads-mongol",
     name: "Silk Roads under Mongol rule",
-    also: ["Pax Mongolica","the overland Eurasian routes"],
+    also: [
+      "Pax Mongolica",
+      "the overland Eurasian routes"
+    ],
     region: "westasia",
-    alsoRegions: ["eastasia","southasia","europe"],
+    alsoRegions: [
+      "eastasia",
+      "southasia",
+      "europe"
+    ],
     where: "overland from China through Central Asia to the Black Sea",
     kind: "network",
     start: 1250,
@@ -730,7 +880,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     dateNote: "The roads themselves are far older, with UNESCO dating the Chang'an to Tianshan corridor from the second century BCE; 1250 to 1350 is only the stretch when one authority made the whole route passable.",
     from: [],
     to: [],
-    influence: [{"id":"black-death","what":"the same roads and ships that carried merchants and envoys carried plague west"}],
+    influence: [
+      {
+        id: "black-death",
+        what: "the same roads and ships that carried merchants and envoys carried plague west"
+      }
+    ],
     peak: 1300,
     note: "A road is only as good as the number of governments along it. The Silk Roads were the overland trade routes from China across Central Asia, used for well over a thousand years and normally carved up between quarrelling rulers who each wanted a cut. From about 1250 to 1350 the Mongols held nearly the whole length under one authority, so a merchant could cross end to end on papers from a single government. That is why a trader from Venice named Marco Polo got to make his journey. A century later the plague made the same journey, on the same open road.",
     confidence: "approximate",
@@ -740,7 +895,9 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "chola-dynasty",
     name: "Chola dynasty",
-    also: ["Imperial Cholas"],
+    also: [
+      "Imperial Cholas"
+    ],
     region: "southasia",
     where: "Tamil Nadu and the southern Indian coast",
     kind: "empire",
@@ -751,7 +908,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     dateNote: "Britannica says the line's origins are of unknown antiquity and predate the Sangam poems, so 848 is only the conventional start of the imperial Cholas under Vijayalaya.",
     from: [],
     to: [],
-    influence: [{"id":"srivijaya","what":"Tamil merchant guilds, temple patronage and the naval raids of 1025 that broke its control of the straits"}],
+    influence: [
+      {
+        id: "srivijaya",
+        what: "Tamil merchant guilds, temple patronage and the naval raids of 1025 that broke its control of the straits"
+      }
+    ],
     peak: 1030,
     note: "In 1023 a king sent an army north to fetch river water. Rajendra of the Chola dynasty, which was a single Tamil ruling family on the southeast coast of India, had water from the Ganges carried home to fill a lake at his new capital. His father Rajaraja I, who ruled from 985 to 1014, had paid for the huge Brihadishvara temple at Thanjavur out of his conquests. Rajendra himself sent a fleet that took parts of the Malay peninsula, which runs south from mainland Asia, and the islands beyond. Temples, fleets and a lake of holy water, all of it paid for by somebody else.",
     confidence: "approximate",
@@ -761,7 +923,9 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "delhi-sultanate",
     name: "Delhi Sultanate",
-    also: ["Mamluk, Khalji, Tughluq, Sayyid and Lodi sultans"],
+    also: [
+      "Mamluk, Khalji, Tughluq, Sayyid and Lodi sultans"
+    ],
     region: "southasia",
     where: "northern India",
     kind: "state",
@@ -771,7 +935,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     endPrecision: "contested",
     dateNote: "Britannica runs the sultanate to 1556, counting the Sur interlude, while most tables end it at Babur's victory at Panipat in 1526.",
     from: [],
-    to: [{"id":"bahmani-sultanate","how":"split-from"}],
+    to: [
+      {
+        id: "bahmani-sultanate",
+        how: "split-from"
+      }
+    ],
     influence: [],
     peak: 1330,
     note: "Five different families held one throne in turn, which is why this period is named after a city and not after a family. From 1206 northern India was ruled from Delhi by a sultan, meaning a Muslim king. Then in 1398 the Central Asian conqueror Timur came over the mountains and sacked the city. The sultanate never got its reach back, and spent its last century as one regional power among several. A city can survive what a ruling family cannot.",
@@ -782,7 +951,9 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "bahmani-sultanate",
     name: "Bahmani sultanate",
-    also: ["Bahmanids"],
+    also: [
+      "Bahmanids"
+    ],
     region: "southasia",
     where: "the Deccan plateau",
     kind: "state",
@@ -791,7 +962,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     startPrecision: "year",
     endPrecision: "year",
     dateNote: "",
-    from: [{"id":"delhi-sultanate","how":"split-from"}],
+    from: [
+      {
+        id: "delhi-sultanate",
+        how: "split-from"
+      }
+    ],
     to: [],
     influence: [],
     peak: 1420,
@@ -803,7 +979,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "vijayanagara-empire",
     name: "Vijayanagara empire",
-    also: ["Karnata kingdom","Hampi"],
+    also: [
+      "Karnata kingdom",
+      "Hampi"
+    ],
     region: "southasia",
     where: "Karnataka and southern India",
     kind: "empire",
@@ -824,7 +1003,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "polonnaruwa-kingdom",
     name: "Kingdom of Polonnaruwa",
-    also: ["Polonnaruwa","Sri Lanka's second capital"],
+    also: [
+      "Polonnaruwa",
+      "Sri Lanka's second capital"
+    ],
     region: "southasia",
     where: "Sri Lanka",
     kind: "state",
@@ -845,9 +1027,16 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "indian-ocean-trade",
     name: "Indian Ocean trade network",
-    also: ["monsoon trade","the maritime routes"],
+    also: [
+      "monsoon trade",
+      "the maritime routes"
+    ],
     region: "southasia",
-    alsoRegions: ["africa","southasia","seasia"],
+    alsoRegions: [
+      "africa",
+      "southasia",
+      "seasia"
+    ],
     where: "from East Africa and the Red Sea to India, Southeast Asia and China",
     kind: "network",
     start: 100,
@@ -857,7 +1046,16 @@ window.HOE_ENTITIES_MANYCENTERS = [
     dateNote: "This network has no start or end; the bounds here are conventional, with trading attested long before 100 and the arrival of the Portuguese after 1498 changing its terms rather than finishing it.",
     from: [],
     to: [],
-    influence: [{"id":"swahili-coast","what":"cloth, beads and ceramics inward, gold, ivory and timber outward, and Islam with the shipping"},{"id":"melaka-sultanate","what":"the shipping that made a new port the hinge of the eastern ocean within a generation"}],
+    influence: [
+      {
+        id: "swahili-coast",
+        what: "cloth, beads and ceramics inward, gold, ivory and timber outward, and Islam with the shipping"
+      },
+      {
+        id: "melaka-sultanate",
+        what: "the shipping that made a new port the hinge of the eastern ocean within a generation"
+      }
+    ],
     peak: 1400,
     note: "Nobody owned the Indian Ocean. No government decided who sailed on it, and for centuries it was the busiest sea on Earth. The reason was the monsoon, a wind that blows one way for half the year and the other way for the rest, so a sailing ship could cross to India and be carried home again months later. Gujarati, Arab, Swahili, Tamil, Javanese and Chinese ships all worked the same routes at the same time, which is to say nobody had a monopoly. All of it was already running long before any European arrived, which is why nobody out there was waiting to be discovered.",
     confidence: "approximate",
@@ -867,7 +1065,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "song-dynasty",
     name: "Song dynasty",
-    also: ["Northern Song","Southern Song"],
+    also: [
+      "Northern Song",
+      "Southern Song"
+    ],
     region: "eastasia",
     where: "China",
     kind: "state",
@@ -877,8 +1078,22 @@ window.HOE_ENTITIES_MANYCENTERS = [
     endPrecision: "year",
     dateNote: "Modelled as one thread: the court lost the north in 1127 and moved to Hangzhou, which divides the dynasty into Northern and Southern Song without breaking the state.",
     from: [],
-    to: [{"id":"yuan-dynasty","how":"conquered-by"}],
-    influence: [{"id":"goryeo","what":"printed books, examination bureaucracy and Neo-Confucian learning"},{"id":"dai-viet","what":"the examination system and Confucian statecraft"}],
+    to: [
+      {
+        id: "yuan-dynasty",
+        how: "conquered-by"
+      }
+    ],
+    influence: [
+      {
+        id: "goryeo",
+        what: "printed books, examination bureaucracy and Neo-Confucian learning"
+      },
+      {
+        id: "dai-viet",
+        what: "the examination system and Confucian statecraft"
+      }
+    ],
     peak: 1100,
     note: "Song China ran several cities of more than a million people each, which nothing in Europe came close to at the time. The Song were the family who ruled the country from 960 to 1279, and a dynasty is simply a line of rulers from one household. They printed books by the thousand and issued government paper money, which is money worth something because the state says so. In 1126 a northern army burned their capital, Kaifeng. The court fled south, set up again at a city called Hangzhou, and the state carried on for another 150 years.",
     confidence: "firm",
@@ -888,7 +1103,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "liao-dynasty",
     name: "Liao dynasty",
-    also: ["Khitan empire","Kitan"],
+    also: [
+      "Khitan empire",
+      "Kitan"
+    ],
     region: "eastasia",
     where: "northern China, Manchuria and Mongolia",
     kind: "state",
@@ -898,7 +1116,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     endPrecision: "year",
     dateNote: "907 is the traditional start, the last year of the Tang, while Chinese historians often use 916, when Abaoji declared himself emperor.",
     from: [],
-    to: [{"id":"jin-dynasty","how":"conquered-by"}],
+    to: [
+      {
+        id: "jin-dynasty",
+        how: "conquered-by"
+      }
+    ],
     influence: [],
     peak: 1050,
     note: "Song China could not beat the Liao, so from 1004 it simply paid them off every year. The Khitan were herders from the grasslands north of China whose chief took the title emperor in 907, and his family, the Yelu, ruled northern China, Manchuria and Mongolia for two centuries as the Liao dynasty. They governed with two systems at once, a Khitan one for the herding north and a Chinese one for the farming south. That meant two sets of officials and two ways of being governed inside one state. Tribute money is what a bigger neighbour pays when fighting costs more.",
@@ -909,7 +1132,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "jin-dynasty",
     name: "Jin dynasty",
-    also: ["Jurchen Jin","Juchen"],
+    also: [
+      "Jurchen Jin",
+      "Juchen"
+    ],
     region: "eastasia",
     where: "northern China and Manchuria",
     kind: "state",
@@ -918,8 +1144,18 @@ window.HOE_ENTITIES_MANYCENTERS = [
     startPrecision: "year",
     endPrecision: "year",
     dateNote: "",
-    from: [{"id":"liao-dynasty","how":"conquered-by"}],
-    to: [{"id":"mongol-empire","how":"conquered-by"}],
+    from: [
+      {
+        id: "liao-dynasty",
+        how: "conquered-by"
+      }
+    ],
+    to: [
+      {
+        id: "mongol-empire",
+        how: "conquered-by"
+      }
+    ],
     influence: [],
     peak: 1150,
     note: "In 1115 the Jurchen declared a dynasty of their own, and within ten years they had destroyed the empire they had started out serving. The Jurchen were a people from the forests of Manchuria, ancestors of the later Manchus. The empire they wrecked was the Khitan one, which had hired them. In 1126 they burned Kaifeng, the Song capital, and the Chinese court ran south, which is the event that cuts Song China into a northern and a southern half. Then in 1234 the Mongols did to the Jin exactly what the Jin had done to the Khitan.",
@@ -930,7 +1166,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "western-xia",
     name: "Western Xia",
-    also: ["Xi Xia","Tangut state"],
+    also: [
+      "Xi Xia",
+      "Tangut state"
+    ],
     region: "eastasia",
     where: "Gansu, Ningxia and Inner Mongolia",
     kind: "state",
@@ -940,7 +1179,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     endPrecision: "year",
     dateNote: "Britannica dates the proclamation to 1038 and says the state lasted nearly two centuries before the Mongols brought it down, without giving the end year.",
     from: [],
-    to: [{"id":"mongol-empire","how":"conquered-by"}],
+    to: [
+      {
+        id: "mongol-empire",
+        how: "conquered-by"
+      }
+    ],
     influence: [],
     peak: 1100,
     note: "In 1227 the Mongols destroyed a state so thoroughly that nobody could read its writing any more. The Tangut were a people of the dry country where Gansu, Ningxia and Inner Mongolia now meet, and in 1038 their ruler declared an empire, which Chinese records call Western Xia. They had invented a script of their own, thousands of dense characters, and printed books in it. Those books then sat unread for centuries. Serious study of the script began only when a buried city called Khara-Khoto was dug up after 1900.",
@@ -951,9 +1195,16 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "mongol-empire",
     name: "Mongol empire",
-    also: ["Yeke Mongol Ulus","the Great Khanate"],
+    also: [
+      "Yeke Mongol Ulus",
+      "the Great Khanate"
+    ],
     region: "eastasia",
-    alsoRegions: ["westasia","europe","southasia"],
+    alsoRegions: [
+      "westasia",
+      "europe",
+      "southasia"
+    ],
     where: "from Korea to Hungary",
     kind: "empire",
     start: 1206,
@@ -962,8 +1213,30 @@ window.HOE_ENTITIES_MANYCENTERS = [
     endPrecision: "contested",
     dateNote: "1206 is Temujin's acclamation as Genghis Khan; the empire never formally ended, and 1260, 1294 and 1368 are all used, with 1260 chosen here because the khanates acted independently from then on.",
     from: [],
-    to: [{"id":"yuan-dynasty","how":"split-from"},{"id":"ilkhanate","how":"split-from"},{"id":"golden-horde","how":"split-from"}],
-    influence: [{"id":"silk-roads-mongol","what":"one authority over the whole overland route, which is what made it passable"},{"id":"gunpowder-weapons","what":"carried gunpowder weapons west across Eurasia"}],
+    to: [
+      {
+        id: "yuan-dynasty",
+        how: "split-from"
+      },
+      {
+        id: "ilkhanate",
+        how: "split-from"
+      },
+      {
+        id: "golden-horde",
+        how: "split-from"
+      }
+    ],
+    influence: [
+      {
+        id: "silk-roads-mongol",
+        what: "one authority over the whole overland route, which is what made it passable"
+      },
+      {
+        id: "gunpowder-weapons",
+        what: "carried gunpowder weapons west across Eurasia"
+      }
+    ],
     peak: 1259,
     note: "Within two generations an army of herders on horseback held more ground than Rome took in four centuries, from Korea to Hungary. In 1206 the chiefs of the Mongol grasslands had acclaimed one man, Temujin, as Genghis Khan, meaning universal ruler. His riders could shoot from horseback and keep moving for weeks with nothing to live on but what the grass fed. Whole cities were killed so that the next one would surrender, and that was the method rather than an accident. By 1260 the empire had broken into pieces run by rival cousins.",
     confidence: "contested",
@@ -973,7 +1246,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "yuan-dynasty",
     name: "Yuan dynasty",
-    also: ["Mongol China","Great Yuan"],
+    also: [
+      "Mongol China",
+      "Great Yuan"
+    ],
     region: "eastasia",
     where: "China and Mongolia",
     kind: "state",
@@ -982,8 +1258,22 @@ window.HOE_ENTITIES_MANYCENTERS = [
     startPrecision: "year",
     endPrecision: "year",
     dateNote: "1271 is when Kublai proclaimed the dynasty, eight years before the conquest of the Southern Song was finished in 1279.",
-    from: [{"id":"mongol-empire","how":"split-from"},{"id":"song-dynasty","how":"conquered-by"}],
-    to: [{"id":"ming-dynasty","how":"succeeded"}],
+    from: [
+      {
+        id: "mongol-empire",
+        how: "split-from"
+      },
+      {
+        id: "song-dynasty",
+        how: "conquered-by"
+      }
+    ],
+    to: [
+      {
+        id: "ming-dynasty",
+        how: "succeeded"
+      }
+    ],
     influence: [],
     peak: 1300,
     note: "Kublai Khan, a grandson of Genghis Khan, conquered China and then changed almost nothing. He declared his own Chinese dynasty, the Yuan, in 1271 and finished off the last Chinese emperor's armies by 1279. He kept the paper money, the canals and the tax offices as he found them, and simply placed Mongols and other foreigners in the top jobs above Chinese officials. Running a country is harder than taking one, and the people who knew how were already there. The arrangement lasted not quite a hundred years.",
@@ -994,7 +1284,9 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "ming-dynasty",
     name: "Ming dynasty",
-    also: ["Great Ming"],
+    also: [
+      "Great Ming"
+    ],
     region: "eastasia",
     where: "China",
     kind: "state",
@@ -1003,9 +1295,19 @@ window.HOE_ENTITIES_MANYCENTERS = [
     startPrecision: "year",
     endPrecision: "year",
     dateNote: "",
-    from: [{"id":"yuan-dynasty","how":"succeeded"}],
+    from: [
+      {
+        id: "yuan-dynasty",
+        how: "succeeded"
+      }
+    ],
     to: [],
-    influence: [{"id":"joseon","what":"tribute relations and Neo-Confucian administration"}],
+    influence: [
+      {
+        id: "joseon",
+        what: "tribute relations and Neo-Confucian administration"
+      }
+    ],
     peak: 1430,
     note: "Between 1405 and 1433 China sent seven state fleets across the Indian Ocean, and the first carried about 208 vessels and more than 27,000 men. The Ming were the Chinese family who pushed the Mongols out in 1368 and then ruled for nearly three hundred years. Their admiral, Zheng He, reached India, Arabia and the coasts of Somalia and Kenya. Then a new emperor called the voyages off. China could have carried on and chose not to.",
     confidence: "firm",
@@ -1015,7 +1317,9 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "goryeo",
     name: "Goryeo dynasty",
-    also: ["Koryo"],
+    also: [
+      "Koryo"
+    ],
     region: "eastasia",
     where: "Korea",
     kind: "state",
@@ -1025,8 +1329,18 @@ window.HOE_ENTITIES_MANYCENTERS = [
     endPrecision: "year",
     dateNote: "",
     from: [],
-    to: [{"id":"joseon","how":"succeeded"}],
-    influence: [{"id":"moveable-type","what":"cast metal movable type, in use from the thirteenth century"}],
+    to: [
+      {
+        id: "joseon",
+        how: "succeeded"
+      }
+    ],
+    influence: [
+      {
+        id: "moveable-type",
+        what: "cast metal movable type, in use from the thirteenth century"
+      }
+    ],
     peak: 1100,
     note: "In 1232 a Mongol invasion burned the woodblocks that held the entire Buddhist scripture, finished in 1013. So Goryeo, which was the kingdom that ruled Korea from 918 to 1392 and gave English the name Korea, carved the whole thing again. That took sixteen years and 81,258 blocks, and those blocks are still stacked in a mountain temple called Haeinsa. Goryeo printers were also setting pages with cast metal type by about 1234. Nobody who starts a job that size expects to do it twice.",
     confidence: "firm",
@@ -1036,7 +1350,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "joseon",
     name: "Joseon dynasty",
-    also: ["Choson","Korean empire after 1897"],
+    also: [
+      "Choson",
+      "Korean empire after 1897"
+    ],
     region: "eastasia",
     where: "Korea",
     kind: "state",
@@ -1045,7 +1362,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     startPrecision: "year",
     endPrecision: "year",
     dateNote: "The Met gives 1392 to 1910; the state was renamed the Korean Empire in 1897 and annexed by Japan in 1910, so sources end the dynasty at either date.",
-    from: [{"id":"goryeo","how":"succeeded"}],
+    from: [
+      {
+        id: "goryeo",
+        how: "succeeded"
+      }
+    ],
     to: [],
     influence: [],
     peak: 1450,
@@ -1057,7 +1379,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "kamakura-shogunate",
     name: "Kamakura shogunate",
-    also: ["Kamakura period","Kamakura bakufu"],
+    also: [
+      "Kamakura period",
+      "Kamakura bakufu"
+    ],
     region: "eastasia",
     where: "Japan",
     kind: "state",
@@ -1067,7 +1392,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     endPrecision: "year",
     dateNote: "The Met uses 1185 for the start of the period while 1192, the year Minamoto Yoritomo was named shogun, is equally common.",
     from: [],
-    to: [{"id":"muromachi-shogunate","how":"succeeded"}],
+    to: [
+      {
+        id: "muromachi-shogunate",
+        how: "succeeded"
+      }
+    ],
     influence: [],
     peak: 1250,
     note: "On 14 August 1281 a typhoon smashed a fleet of roughly 4,400 ships carrying 100,000 men, and Japan was not invaded. The ships were Mongol, and this was their second attempt. Japan was then run from the town of Kamakura by the shogun, meaning the commanding general, while the emperor stayed in Kyoto as a figurehead. The Japanese called those storms divine winds, kamikaze. Then the government broke apart paying for a war with no loot in it, because you cannot pay your soldiers with a storm.",
@@ -1078,7 +1408,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "muromachi-shogunate",
     name: "Muromachi shogunate",
-    also: ["Ashikaga shogunate","Muromachi period"],
+    also: [
+      "Ashikaga shogunate",
+      "Muromachi period"
+    ],
     region: "eastasia",
     where: "Japan",
     kind: "state",
@@ -1087,7 +1420,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     startPrecision: "contested",
     endPrecision: "year",
     dateNote: "The Met dates the period 1392 to 1573, from the reunification of the two courts, while 1336, the year Ashikaga Takauji installed his own emperor, is the other common start.",
-    from: [{"id":"kamakura-shogunate","how":"succeeded"}],
+    from: [
+      {
+        id: "kamakura-shogunate",
+        how: "succeeded"
+      }
+    ],
     to: [],
     influence: [],
     peak: 1400,
@@ -1099,9 +1437,16 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "moveable-type",
     name: "Moveable type",
-    also: ["movable type","metal type","printing with types"],
+    also: [
+      "movable type",
+      "metal type",
+      "printing with types"
+    ],
     region: "eastasia",
-    alsoRegions: ["eastasia","europe"],
+    alsoRegions: [
+      "eastasia",
+      "europe"
+    ],
     where: "China, then Korea, then Europe",
     kind: "technology",
     start: 1040,
@@ -1121,9 +1466,16 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "gunpowder-weapons",
     name: "Gunpowder weapons",
-    also: ["fire lance","bombard","cannon"],
+    also: [
+      "fire lance",
+      "bombard",
+      "cannon"
+    ],
     region: "eastasia",
-    alsoRegions: ["westasia","europe"],
+    alsoRegions: [
+      "westasia",
+      "europe"
+    ],
     where: "China first, then West Asia and Europe",
     kind: "technology",
     start: 1000,
@@ -1143,7 +1495,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "khmer-empire",
     name: "Khmer empire",
-    also: ["Angkor","Kambuja"],
+    also: [
+      "Angkor",
+      "Kambuja"
+    ],
     region: "seasia",
     where: "Cambodia, with reach into Thailand, Laos and Vietnam",
     kind: "empire",
@@ -1164,7 +1519,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "pagan-kingdom",
     name: "Pagan kingdom",
-    also: ["Bagan","Pagan empire"],
+    also: [
+      "Bagan",
+      "Pagan empire"
+    ],
     region: "seasia",
     where: "Myanmar",
     kind: "state",
@@ -1185,7 +1543,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "srivijaya",
     name: "Srivijaya",
-    also: ["Sriwijaya","Palembang thalassocracy"],
+    also: [
+      "Sriwijaya",
+      "Palembang thalassocracy"
+    ],
     region: "seasia",
     where: "Sumatra and the Malay peninsula",
     kind: "state",
@@ -1196,7 +1557,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     dateNote: "Britannica gives 601 to 1300; the earliest dated inscriptions are of the 680s, the Cholas seized Palembang in 1025, and by the end of the twelfth century it had already been reduced to a small kingdom.",
     from: [],
     to: [],
-    influence: [{"id":"melaka-sultanate","what":"a Palembang royal line that the Malay Annals make the founder of Melaka, which is a dynastic claim rather than a succession"}],
+    influence: [
+      {
+        id: "melaka-sultanate",
+        what: "a Palembang royal line that the Malay Annals make the founder of Melaka, which is a dynastic claim rather than a succession"
+      }
+    ],
     peak: 1000,
     note: "Srivijaya lived off a choke point. Nearly all shipping between India and China squeezed through the Strait of Malacca, which is a narrow gap between the island of Sumatra and the Malay peninsula, and this kingdom on Sumatra took its cut. It was Buddhist, and Chinese monks bound for India stopped there to study. In 1025 a fleet from the Chola kingdom of southern India seized its port of Palembang and carried off the king and his treasure. A state built on a waterway rather than on land leaves very little behind, which is why where its capital stood is still argued over.",
     confidence: "contested",
@@ -1206,7 +1572,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "singhasari",
     name: "Singhasari",
-    also: ["Singosari","Singhasari kingdom"],
+    also: [
+      "Singosari",
+      "Singhasari kingdom"
+    ],
     region: "seasia",
     where: "eastern Java",
     kind: "state",
@@ -1216,7 +1585,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     endPrecision: "year",
     dateNote: "",
     from: [],
-    to: [{"id":"majapahit","how":"succeeded"}],
+    to: [
+      {
+        id: "majapahit",
+        how: "succeeded"
+      }
+    ],
     influence: [],
     peak: 1280,
     note: "There are better ways to say no. In 1289 Kublai Khan, who was the Mongol ruler of China, sent envoys to eastern Java demanding that King Kertanegara submit. Kertanegara ruled Singhasari, a kingdom that lasted barely seventy years, and he had the envoys' faces cut before sending them home. A Mongol fleet arrived in 1293 to settle the insult, by which time a rival of his own had already killed him. That fleet is how the next kingdom on Java got started.",
@@ -1227,7 +1601,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "majapahit",
     name: "Majapahit",
-    also: ["Madjapahit","Wilwatikta"],
+    also: [
+      "Madjapahit",
+      "Wilwatikta"
+    ],
     region: "seasia",
     where: "Java, with claims across the Indonesian archipelago",
     kind: "empire",
@@ -1236,7 +1613,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     startPrecision: "year",
     endPrecision: "contested",
     dateNote: "Britannica's own figures give 1201 to 1550 while its text puts the end in the late fifteenth or early sixteenth century; 1293 is the founding by Vijaya and 1527 is the conventional fall to Demak.",
-    from: [{"id":"singhasari","how":"succeeded"}],
+    from: [
+      {
+        id: "singhasari",
+        how: "succeeded"
+      }
+    ],
     to: [],
     influence: [],
     peak: 1365,
@@ -1248,7 +1630,11 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "dai-viet",
     name: "Dai Viet",
-    also: ["Ly dynasty","Tran dynasty","Annam"],
+    also: [
+      "Ly dynasty",
+      "Tran dynasty",
+      "Annam"
+    ],
     region: "seasia",
     where: "northern Vietnam",
     kind: "state",
@@ -1269,7 +1655,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "melaka-sultanate",
     name: "Melaka sultanate",
-    also: ["Malacca","Malacca sultanate"],
+    also: [
+      "Malacca",
+      "Malacca sultanate"
+    ],
     region: "seasia",
     where: "the Malay peninsula",
     kind: "state",
@@ -1290,7 +1679,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "east-polynesian-voyaging",
     name: "East Polynesian voyaging sphere",
-    also: ["Polynesian expansion","the long pause and the dispersal"],
+    also: [
+      "Polynesian expansion",
+      "the long pause and the dispersal"
+    ],
     region: "oceania",
     where: "the central and eastern Pacific",
     kind: "network",
@@ -1300,7 +1692,16 @@ window.HOE_ENTITIES_MANYCENTERS = [
     endPrecision: "range",
     dateNote: "High precision radiocarbon dating puts the Society Islands at 1025 to 1120 and one rapid dispersal to New Zealand, Hawaii and Rapa Nui at 1190 to 1290; older chronologies ran centuries earlier and are now contested.",
     from: [],
-    to: [{"id":"maori-aotearoa","how":"founded-by-settlers"},{"id":"rapa-nui","how":"founded-by-settlers"}],
+    to: [
+      {
+        id: "maori-aotearoa",
+        how: "founded-by-settlers"
+      },
+      {
+        id: "rapa-nui",
+        how: "founded-by-settlers"
+      }
+    ],
     influence: [],
     peak: 1250,
     note: "Scattered across the central Pacific were the last habitable places on Earth with nobody on them. Polynesian sailors crossed mostly empty water to reach them, in double-hulled canoes, steering by memorised star positions, the direction of the ocean swell and the behaviour of birds that nest on land. Careful dating of charcoal and bone puts them in the Society Islands by about 1025 to 1120. From there, between 1190 and 1290, they reached what are now New Zealand, Hawaii and Rapa Nui. That is three corners of an ocean inside a century.",
@@ -1311,7 +1712,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "maori-aotearoa",
     name: "Maori settlement of Aotearoa",
-    also: ["Aotearoa","New Zealand"],
+    also: [
+      "Aotearoa",
+      "New Zealand"
+    ],
     region: "oceania",
     where: "New Zealand",
     kind: "culture",
@@ -1320,7 +1724,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     startPrecision: "range",
     endPrecision: "year",
     dateNote: "The consensus range is 1250 to 1300, the high precision radiocarbon work gives 1190 to 1290, and no archaeological site anywhere in the country lies below the Kaharoa ash of about 1314.",
-    from: [{"id":"east-polynesian-voyaging","how":"founded-by-settlers"}],
+    from: [
+      {
+        id: "east-polynesian-voyaging",
+        how: "founded-by-settlers"
+      }
+    ],
     to: [],
     influence: [],
     peak: null,
@@ -1332,7 +1741,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "rapa-nui",
     name: "Rapa Nui",
-    also: ["Easter Island","Isla de Pascua"],
+    also: [
+      "Easter Island",
+      "Isla de Pascua"
+    ],
     region: "oceania",
     where: "the southeastern Pacific",
     kind: "culture",
@@ -1341,7 +1753,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     startPrecision: "contested",
     endPrecision: "year",
     dateNote: "Radiocarbon work at Anakena puts settlement closer to 1200, against an older estimate of 400 to 800 that is still quoted.",
-    from: [{"id":"east-polynesian-voyaging","how":"founded-by-settlers"}],
+    from: [
+      {
+        id: "east-polynesian-voyaging",
+        how: "founded-by-settlers"
+      }
+    ],
     to: [],
     influence: [],
     peak: 1400,
@@ -1353,7 +1770,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "tui-tonga",
     name: "Tu'i Tonga",
-    also: ["Tongan maritime chiefdom","Tongan state"],
+    also: [
+      "Tongan maritime chiefdom",
+      "Tongan state"
+    ],
     region: "oceania",
     where: "Tonga and the western Pacific",
     kind: "state",
@@ -1374,7 +1794,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "aboriginal-australia",
     name: "Aboriginal Australian nations",
-    also: ["First Nations of Australia","Gunditjmara, Yolngu, Wiradjuri and hundreds more"],
+    also: [
+      "First Nations of Australia",
+      "Gunditjmara, Yolngu, Wiradjuri and hundreds more"
+    ],
     region: "oceania",
     where: "the Australian continent and the Torres Strait",
     kind: "culture",
@@ -1395,7 +1818,11 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "byzantine-empire",
     name: "Byzantine empire",
-    also: ["eastern Roman empire","Romania","Rhomaioi"],
+    also: [
+      "eastern Roman empire",
+      "Romania",
+      "Rhomaioi"
+    ],
     region: "europe",
     where: "Turkey, Greece and the Balkans",
     kind: "empire",
@@ -1405,7 +1832,24 @@ window.HOE_ENTITIES_MANYCENTERS = [
     endPrecision: "year",
     dateNote: "330, 395 and 476 are all used as starting points. 1204 is not one of the usual endings, but the state did stop: crusaders took Constantinople, and what carried on did so in exile.",
     from: [],
-    to: [{"id":"latin-empire","how":"conquered-by"},{"id":"empire-of-nicaea","how":"split-from"},{"id":"empire-of-trebizond","how":"split-from"},{"id":"despotate-of-epirus","how":"split-from"}],
+    to: [
+      {
+        id: "latin-empire",
+        how: "conquered-by"
+      },
+      {
+        id: "empire-of-nicaea",
+        how: "split-from"
+      },
+      {
+        id: "empire-of-trebizond",
+        how: "split-from"
+      },
+      {
+        id: "despotate-of-epirus",
+        how: "split-from"
+      }
+    ],
     influence: [],
     peak: 1025,
     note: "The end came from their own side. When the Roman empire split in two, its eastern half carried on from Constantinople, now Istanbul, for another thousand years, and its people went on calling themselves Romans. Historians call them Byzantine instead. In 1204 a crusading army of western European Christians, who had set out for Egypt, ran out of money to pay Venice for its ships and took the largest Christian city in the world instead. They were supposed to be on the same side.",
@@ -1416,7 +1860,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "holy-roman-empire",
     name: "Holy Roman Empire",
-    also: ["Sacrum Imperium Romanum","the Empire"],
+    also: [
+      "Sacrum Imperium Romanum",
+      "the Empire"
+    ],
     region: "europe",
     where: "Germany, northern Italy and central Europe",
     kind: "empire",
@@ -1437,7 +1884,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "kievan-rus",
     name: "Kievan Rus",
-    also: ["Kyivan Rus","Rus"],
+    also: [
+      "Kyivan Rus",
+      "Rus"
+    ],
     region: "europe",
     where: "Ukraine, Belarus and western Russia",
     kind: "state",
@@ -1447,7 +1897,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     endPrecision: "year",
     dateNote: "Oleg is said to have taken Kyiv in 882, three years after becoming ruler of Novgorod, and the Mongol sack of Kyiv in 1240 is where the state is conventionally ended.",
     from: [],
-    to: [{"id":"novgorod-republic","how":"split-from"}],
+    to: [
+      {
+        id: "novgorod-republic",
+        how: "split-from"
+      }
+    ],
     influence: [],
     peak: 1040,
     note: "Nothing inherited Kievan Rus, because it simply stopped being one thing. It was a loose group of Slavic lands, each with its own prince, all answering to Kyiv, where the ruling family was descended from Scandinavian traders. Oleg is said to have taken the city in 882, and its princes became Christian a century later. In 1240 the Mongols, who ruled the grasslands to the east, sacked Kyiv. Each land then carried on alone, paying goods and silver to Mongol overlords, and no one family inherited the whole.",
@@ -1458,7 +1913,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "novgorod-republic",
     name: "Novgorod republic",
-    also: ["Lord Novgorod the Great","Veliky Novgorod"],
+    also: [
+      "Lord Novgorod the Great",
+      "Veliky Novgorod"
+    ],
     region: "europe",
     where: "northwestern Russia",
     kind: "city",
@@ -1467,7 +1925,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     startPrecision: "contested",
     endPrecision: "year",
     dateNote: "UNESCO dates the republic only to the twelfth to fifteenth centuries; 1136 is the conventional year its assembly took power and 1478 is the Muscovite conquest.",
-    from: [{"id":"kievan-rus","how":"split-from"}],
+    from: [
+      {
+        id: "kievan-rus",
+        how: "split-from"
+      }
+    ],
     to: [],
     influence: [],
     peak: 1300,
@@ -1479,7 +1942,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "golden-horde",
     name: "Golden Horde",
-    also: ["Ulus of Jochi","Kipchak Khanate"],
+    also: [
+      "Ulus of Jochi",
+      "Kipchak Khanate"
+    ],
     region: "europe",
     where: "the Pontic and Caspian steppe and the Rus principalities",
     kind: "state",
@@ -1488,7 +1954,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     startPrecision: "contested",
     endPrecision: "year",
     dateNote: "Britannica dates the Horde from 1227, the ulus of Jochi, while 1242 is the end of the western campaign and the Horde proper; its last remnant was destroyed in 1502.",
-    from: [{"id":"mongol-empire","how":"split-from"}],
+    from: [
+      {
+        id: "mongol-empire",
+        how: "split-from"
+      }
+    ],
     to: [],
     influence: [],
     peak: 1300,
@@ -1500,7 +1971,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "hanseatic-league",
     name: "Hanseatic League",
-    also: ["Hansa","Deutsche Hanse"],
+    also: [
+      "Hansa",
+      "Deutsche Hanse"
+    ],
     region: "europe",
     where: "the North Sea and Baltic coasts",
     kind: "network",
@@ -1511,7 +1985,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     dateNote: "Britannica puts the merger of the north German trading associations into one league in the late thirteenth century and the last diet in 1669, so both ends are soft.",
     from: [],
     to: [],
-    influence: [{"id":"novgorod-republic","what":"the Peterhof trading station, which tied Novgorod's furs and wax into the Baltic market"}],
+    influence: [
+      {
+        id: "novgorod-republic",
+        what: "the Peterhof trading station, which tied Novgorod's furs and wax into the Baltic market"
+      }
+    ],
     peak: 1400,
     note: "Its weapon was refusing to trade. The Hanseatic League was an alliance of merchant towns around the North Sea and the Baltic, led by Lubeck, with more than a hundred members at its height. It had no king, no capital, no territory and no standing army. In 1370 it beat Denmark in a war anyway, which forced the Danish king to grant its ships free passage and give the League a say in choosing his successor for fifteen years. Merchants wrote that treaty.",
     confidence: "approximate",
@@ -1521,9 +2000,20 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "little-ice-age",
     name: "Little Ice Age onset",
-    also: ["the cold centuries"],
+    also: [
+      "the cold centuries"
+    ],
     region: "europe",
-    alsoRegions: ["europe","americas","eastasia","africa","westasia","southasia","seasia","oceania"],
+    alsoRegions: [
+      "europe",
+      "americas",
+      "eastasia",
+      "africa",
+      "westasia",
+      "southasia",
+      "seasia",
+      "oceania"
+    ],
     where: "the northern hemisphere, unevenly",
     kind: "climate",
     start: 1300,
@@ -1543,7 +2033,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "cahokia",
     name: "Cahokia",
-    also: ["Cahokia Mounds","the Mississippian centre"],
+    also: [
+      "Cahokia Mounds",
+      "the Mississippian centre"
+    ],
     region: "americas",
     where: "southwestern Illinois, by the Mississippi",
     kind: "city",
@@ -1564,7 +2057,11 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "ancestral-puebloan-southwest",
     name: "Chaco and the Ancestral Puebloan southwest",
-    also: ["Chaco Canyon","Chacoan world","Mesa Verde"],
+    also: [
+      "Chaco Canyon",
+      "Chacoan world",
+      "Mesa Verde"
+    ],
     region: "americas",
     where: "New Mexico, Colorado, Arizona and Utah",
     kind: "polity-group",
@@ -1585,7 +2082,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "chimu",
     name: "Chimu kingdom",
-    also: ["Chimor","Chan Chan"],
+    also: [
+      "Chimor",
+      "Chan Chan"
+    ],
     region: "americas",
     where: "the north coast of Peru",
     kind: "state",
@@ -1595,7 +2095,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     endPrecision: "contested",
     dateNote: "UNESCO dates Chimu complexity to between the ninth and fifteenth centuries and says the Inca conquest came shortly after its fifteenth century peak, without giving a year.",
     from: [],
-    to: [{"id":"inca-empire","how":"conquered-by"}],
+    to: [
+      {
+        id: "inca-empire",
+        how: "conquered-by"
+      }
+    ],
     influence: [],
     peak: 1450,
     note: "Everyone in the largest earthen city in the Americas ate food grown with water from a canal eighty kilometres long. That city was Chan Chan, roughly twenty square kilometres of mud-brick walls and courtyards, and the capital of the Chimu kingdom on the desert coast of northern Peru, where rain almost never falls. The water came from two rivers. A city of mud lasts because it never rains there, and it eats because somebody dug a canal across the desert. Then the Inca, a people from the mountains inland, conquered Chimu in the 1400s, not long after it reached its peak.",
@@ -1606,7 +2111,9 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "tiwanaku",
     name: "Tiwanaku",
-    also: ["Tiahuanaco"],
+    also: [
+      "Tiahuanaco"
+    ],
     region: "americas",
     where: "the Bolivian altiplano by Lake Titicaca",
     kind: "state",
@@ -1627,7 +2134,9 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "chichen-itza",
     name: "Chichen Itza",
-    also: ["Chichen Itza and the Maya postclassic"],
+    also: [
+      "Chichen Itza and the Maya postclassic"
+    ],
     region: "americas",
     where: "Yucatan, Mexico",
     kind: "city",
@@ -1648,7 +2157,11 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "mexica-tenochtitlan",
     name: "Mexica Tenochtitlan",
-    also: ["Aztec","Triple Alliance","Mexico-Tenochtitlan"],
+    also: [
+      "Aztec",
+      "Triple Alliance",
+      "Mexico-Tenochtitlan"
+    ],
     region: "americas",
     where: "the Valley of Mexico",
     kind: "city",
@@ -1669,7 +2182,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "inca-empire",
     name: "Inca state and empire",
-    also: ["Tawantinsuyu","the kingdom of Cuzco"],
+    also: [
+      "Tawantinsuyu",
+      "the kingdom of Cuzco"
+    ],
     region: "americas",
     where: "Peru, Bolivia, Ecuador, Chile and Argentina",
     kind: "empire",
@@ -1690,7 +2206,11 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "amazonian-earthworks",
     name: "Casarabe earthwork society",
-    also: ["Llanos de Mojos earthworks","Amazonian geoglyphs","Amazonian earthwork societies"],
+    also: [
+      "Llanos de Mojos earthworks",
+      "Amazonian geoglyphs",
+      "Amazonian earthwork societies"
+    ],
     region: "americas",
     where: "the Llanos de Mojos in the Bolivian Amazon",
     kind: "culture",
@@ -1711,7 +2231,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "latin-empire",
     name: "Latin empire of Constantinople",
-    also: ["Romania","Latin Romania"],
+    also: [
+      "Romania",
+      "Latin Romania"
+    ],
     region: "europe",
     where: "Constantinople, Thrace and much of Greece",
     kind: "state",
@@ -1721,7 +2244,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     endPrecision: "year",
     dateNote: "Both dates are firm: Baldwin of Flanders was crowned in Hagia Sophia in 1204, and the city was retaken in 1261 while the Latin garrison was away raiding.",
     from: [],
-    to: [{"id":"byzantine-restored","how":"conquered-by"}],
+    to: [
+      {
+        id: "byzantine-restored",
+        how: "conquered-by"
+      }
+    ],
     influence: [],
     peak: 1210,
     note: "They took the city and then would not hand it back. In 1204 an army of western European Christians on crusade, who had taken a religious vow to go east, seized Constantinople and crowned one of their own, Baldwin of Flanders, in the great church of Hagia Sophia. They ran the capital of the eastern Roman empire as a western kingdom, short of soldiers and short of money from the first day. It lasted fifty-seven years. In 1261 a rival Greek force walked in and took the city back while the Latin garrison was away raiding.",
@@ -1732,7 +2260,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "empire-of-nicaea",
     name: "Empire of Nicaea",
-    also: ["Nicene empire","Laskarid state"],
+    also: [
+      "Nicene empire",
+      "Laskarid state"
+    ],
     region: "europe",
     where: "western Anatolia, around Iznik",
     kind: "state",
@@ -1741,8 +2272,18 @@ window.HOE_ENTITIES_MANYCENTERS = [
     startPrecision: "year",
     endPrecision: "year",
     dateNote: "The dates mirror the Latin occupation exactly, because Nicaea existed to end it.",
-    from: [{"id":"byzantine-empire","how":"split-from"}],
-    to: [{"id":"byzantine-restored","how":"succeeded"}],
+    from: [
+      {
+        id: "byzantine-empire",
+        how: "split-from"
+      }
+    ],
+    to: [
+      {
+        id: "byzantine-restored",
+        how: "succeeded"
+      }
+    ],
     influence: [],
     peak: 1250,
     note: "Of the three states that each claimed to be the real eastern Roman empire, this is the one that made good. In 1204 an army of western European Christians on crusade, which is to say an armed pilgrimage, seized Constantinople, and the empire broke into three pieces. The piece at Nicaea, now Iznik in western Turkey, kept the court, the tax system and the claim, and set about getting the capital back. That took fifty-seven years. In 1261 its soldiers retook Constantinople, and the man who led them was crowned emperor there.",
@@ -1753,9 +2294,14 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "empire-of-trebizond",
     name: "Empire of Trebizond",
-    also: ["Grand Komnenoi","Trapezous"],
+    also: [
+      "Grand Komnenoi",
+      "Trapezous"
+    ],
     region: "europe",
-    alsoRegions: ["westasia"],
+    alsoRegions: [
+      "westasia"
+    ],
     where: "the Black Sea coast of Anatolia, around Trabzon",
     kind: "state",
     start: 1204,
@@ -1763,7 +2309,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     startPrecision: "year",
     endPrecision: "year",
     dateNote: "Founded weeks before Constantinople fell to the crusaders, and surrendered to the Ottomans in 1461, eight years after Constantinople did.",
-    from: [{"id":"byzantine-empire","how":"split-from"}],
+    from: [
+      {
+        id: "byzantine-empire",
+        how: "split-from"
+      }
+    ],
     to: [],
     influence: [],
     peak: 1300,
@@ -1775,7 +2326,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "despotate-of-epirus",
     name: "Despotate of Epirus",
-    also: ["Epiros","Komnenodoukai"],
+    also: [
+      "Epiros",
+      "Komnenodoukai"
+    ],
     region: "europe",
     where: "northwestern Greece and Albania",
     kind: "state",
@@ -1784,7 +2338,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     startPrecision: "approximate",
     endPrecision: "contested",
     dateNote: "It shrank, changed hands and changed name repeatedly, so the ending depends on which successor you count; 1479 is the Ottoman capture of Vonitsa.",
-    from: [{"id":"byzantine-empire","how":"split-from"}],
+    from: [
+      {
+        id: "byzantine-empire",
+        how: "split-from"
+      }
+    ],
     to: [],
     influence: [],
     peak: 1224,
@@ -1796,7 +2355,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "byzantine-restored",
     name: "Byzantine empire restored",
-    also: ["Palaiologan empire","eastern Roman empire"],
+    also: [
+      "Palaiologan empire",
+      "eastern Roman empire"
+    ],
     region: "europe",
     where: "Constantinople, the Aegean and a shrinking strip of Greece",
     kind: "empire",
@@ -1805,7 +2367,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     startPrecision: "year",
     endPrecision: "year",
     dateNote: "Both ends are firm to the day, which is unusual in this table.",
-    from: [{"id":"empire-of-nicaea","how":"succeeded"}],
+    from: [
+      {
+        id: "empire-of-nicaea",
+        how: "succeeded"
+      }
+    ],
     to: [],
     influence: [],
     peak: 1265,
@@ -1817,7 +2384,11 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "ghana-empire",
     name: "Ghana empire",
-    also: ["Wagadu","ancient Ghana","Soninke kingdom"],
+    also: [
+      "Wagadu",
+      "ancient Ghana",
+      "Soninke kingdom"
+    ],
     region: "africa",
     where: "southeastern Mauritania and western Mali",
     kind: "empire",
@@ -1827,8 +2398,18 @@ window.HOE_ENTITIES_MANYCENTERS = [
     endPrecision: "contested",
     dateNote: "Arabic geographers describe a rich Soninke kingdom from the eighth century, but its beginning is put anywhere from the fourth to the eighth, and its end anywhere from the Almoravid pressure of the 1070s to its absorption by Mali around 1240.",
     from: [],
-    to: [{"id":"sosso-kingdom","how":"succeeded"}],
-    influence: [{"id":"trans-saharan-gold-routes","what":"it taxed the gold and salt passing through rather than mining the gold itself"}],
+    to: [
+      {
+        id: "sosso-kingdom",
+        how: "succeeded"
+      }
+    ],
+    influence: [
+      {
+        id: "trans-saharan-gold-routes",
+        what: "it taxed the gold and salt passing through rather than mining the gold itself"
+      }
+    ],
     peak: 1050,
     note: "Ancient Ghana mined no gold of its own. It was a kingdom of the Soninke people in what is now southeastern Mauritania and western Mali, on the southern rim of the Sahara desert, and it sat between the gold of the forests to the south and the salt of the desert to the north. It taxed both as they crossed. Arab geographers were writing about its wealth by the 800s. The modern country of Ghana borrowed the name at independence in 1957 and lies a very long way south of it.",
     confidence: "contested",
@@ -1838,7 +2419,11 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "sosso-kingdom",
     name: "Sosso kingdom",
-    also: ["Soso","Susu","Kaniaga"],
+    also: [
+      "Soso",
+      "Susu",
+      "Kaniaga"
+    ],
     region: "africa",
     where: "the upper Niger, in what is now southwestern Mali",
     kind: "state",
@@ -1847,8 +2432,18 @@ window.HOE_ENTITIES_MANYCENTERS = [
     startPrecision: "contested",
     endPrecision: "contested",
     dateNote: "Sosso is known mainly through the Sunjata epic and a few Arabic notices, so both ends are oral tradition dated by convention rather than by document.",
-    from: [{"id":"ghana-empire","how":"succeeded"}],
-    to: [{"id":"mali-empire","how":"conquered-by"}],
+    from: [
+      {
+        id: "ghana-empire",
+        how: "succeeded"
+      }
+    ],
+    to: [
+      {
+        id: "mali-empire",
+        how: "conquered-by"
+      }
+    ],
     influence: [],
     peak: 1210,
     note: "Sosso is the hinge between the two great empires of West Africa. It was a short-lived kingdom on the upper Niger river, in what is now southwestern Mali, and it rose as ancient Ghana weakened. Then it fell in turn to Sundiata Keita, whose victory founded the Mali empire. Almost everything known about Sosso comes from the Sunjata epic, a story sung by West African bards for centuries before anyone wrote it down. In that story its king is the villain, and that is the only account of him we have.",
@@ -1859,9 +2454,14 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "almoravid-empire",
     name: "Almoravid empire",
-    also: ["al-Murabitun","Almoravids"],
+    also: [
+      "al-Murabitun",
+      "Almoravids"
+    ],
     region: "africa",
-    alsoRegions: ["europe"],
+    alsoRegions: [
+      "europe"
+    ],
     where: "Morocco, western Algeria, Mauritania and southern Spain",
     kind: "empire",
     start: 1040,
@@ -1870,8 +2470,18 @@ window.HOE_ENTITIES_MANYCENTERS = [
     endPrecision: "year",
     dateNote: "The movement is dated from about 1040 and Marrakesh fell to the Almohads in 1147.",
     from: [],
-    to: [{"id":"almohad-caliphate","how":"conquered-by"}],
-    influence: [{"id":"trans-saharan-gold-routes","what":"its gold dinar, struck from West African gold, was the trusted coin of the western Mediterranean"}],
+    to: [
+      {
+        id: "almohad-caliphate",
+        how: "conquered-by"
+      }
+    ],
+    influence: [
+      {
+        id: "trans-saharan-gold-routes",
+        what: "its gold dinar, struck from West African gold, was the trusted coin of the western Mediterranean"
+      }
+    ],
     peak: 1100,
     note: "A movement that started in desert tents ended up minting the hard currency of two continents. The Almoravids began about 1040 among desert nomads called Berbers, on the southern edge of the Sahara, as a strict religious movement. Within fifty years they ruled Morocco, Mauritania, western Algeria and southern Spain, which is to say both shores of the strait at Gibraltar. Their gold coin, struck with West African gold, was the money merchants trusted across the western Mediterranean. Trust is the hard part, and they had it.",
     confidence: "approximate",
@@ -1881,7 +2491,11 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "taifa-kingdoms",
     name: "Taifa kingdoms",
-    also: ["muluk al-tawaif","party kings","al-Andalus"],
+    also: [
+      "muluk al-tawaif",
+      "party kings",
+      "al-Andalus"
+    ],
     region: "europe",
     where: "Seville, Zaragoza, Toledo, Badajoz, Granada and twenty more",
     kind: "polity-group",
@@ -1891,7 +2505,12 @@ window.HOE_ENTITIES_MANYCENTERS = [
     endPrecision: "contested",
     dateNote: "The caliphate of Cordoba ended in 1031 and the Almoravids had absorbed most taifas by about 1110, but the pattern repeated twice more, in the 1140s and the 1230s.",
     from: [],
-    to: [{"id":"almoravid-empire","how":"conquered-by"}],
+    to: [
+      {
+        id: "almoravid-empire",
+        how: "conquered-by"
+      }
+    ],
     influence: [],
     peak: 1060,
     note: "Rulers with no royal blood have to buy prestige some other way, so they bought poets. Al-Andalus was Muslim-ruled Spain, held together by a caliph at Cordoba, a ruler who was both king and religious head, until his state fell apart in 1031. Between thirty and fifty small kingdoms took its place, called taifas, an Arabic word meaning factions, and their rulers were soldiers and officials. Seville went in for poetry, Toledo for science, Zaragoza for philosophy. Andalusi learning was never richer than in the decades when nobody was in charge.",
@@ -1902,7 +2521,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "emirate-of-granada",
     name: "Emirate of Granada",
-    also: ["Nasrid emirate","Gharnata"],
+    also: [
+      "Nasrid emirate",
+      "Gharnata"
+    ],
     region: "europe",
     where: "Granada, Malaga and Almeria",
     kind: "state",
@@ -1923,7 +2545,11 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "leon-castile",
     name: "Leon and Castile",
-    also: ["Kingdom of Leon","Kingdom of Castile","Crown of Castile"],
+    also: [
+      "Kingdom of Leon",
+      "Kingdom of Castile",
+      "Crown of Castile"
+    ],
     region: "europe",
     where: "the northern and central Spanish plateau",
     kind: "state",
@@ -1944,7 +2570,10 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "crown-of-aragon",
     name: "Crown of Aragon",
-    also: ["Corona de Aragon","Aragon and Barcelona"],
+    also: [
+      "Corona de Aragon",
+      "Aragon and Barcelona"
+    ],
     region: "europe",
     where: "northeastern Spain, and later Sicily, Sardinia and Naples",
     kind: "state",
@@ -1965,7 +2594,9 @@ window.HOE_ENTITIES_MANYCENTERS = [
   {
     id: "kingdom-of-portugal",
     name: "Kingdom of Portugal",
-    also: ["Portucale"],
+    also: [
+      "Portucale"
+    ],
     region: "europe",
     where: "the Atlantic coast west of Leon",
     kind: "state",
