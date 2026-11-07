@@ -4069,6 +4069,13 @@ window.HOE_FRAMES = {
     'questions', 'borders', 'networks', 'manycenters', 'oceans', 'speeds',
     'frequency', 'shared'];
 
+  /* Four eras that have not happened yet. They hold no history, carry no dates
+     and no names, and exist only so the newest real era sits inside the frame
+     with the tunnel carrying on past it in the same colours. Without them the
+     record stopped at the screen edge and the picture ended in a hard rim. */
+  var FUTURE_N = 6, FUTURE_W = 0.667;
+  var NOW_X = 1;
+
   /* deep windows, with the year bounds they actually cover */
   var WINDOW_BOUNDS = {
     w40k:    [-48000, -28000],
@@ -4113,7 +4120,7 @@ window.HOE_FRAMES = {
     /* order by the canonical list, and attach bounds, colour and zoom coordinate */
     ERAS.sort(function (a, b) { return ERA_ORDER.indexOf(a.id) - ERA_ORDER.indexOf(b.id); });
 
-    var total = 0;
+    var total = FUTURE_N * FUTURE_W;
     for (i = 0; i < ERAS.length; i++) total += (ERA_WEIGHT[ERAS[i].id] || 1);
     var acc = 0;
     for (i = 0; i < ERAS.length; i++) {
@@ -4121,8 +4128,9 @@ window.HOE_FRAMES = {
       var w = (ERA_WEIGHT[e.id] || 1) / total;
       e.index = i;
       e.x0 = acc;
-      e.x1 = (i === ERAS.length - 1) ? 1 : acc + w;
+      e.x1 = acc + w;
       acc = e.x1;
+      NOW_X = e.x1;
       e.a = ERA_BOUNDS[e.id][0];
       e.b = ERA_BOUNDS[e.id][1];
       e.hue = (268 - i * 22 + 720) % 360;
@@ -4368,6 +4376,22 @@ window.HOE_FRAMES = {
       n.isEra = true;
       ROOT.children.push(n);
     }
+    /* the eras that have not happened, carrying the hue wheel onward */
+    var span = (1 - NOW_X) / FUTURE_N, last = ERAS[ERAS.length - 1];
+    for (var f = 0; f < FUTURE_N; f++) {
+      var fe = {
+        id: 'future' + f,
+        hue: (last.hue - (f + 1) * 4 + 1440) % 360,
+        dim: (f + 1) * 3.4,
+        short: '', label: '', range: '', isFuture: true
+      };
+      var fx0 = NOW_X + f * span, fx1 = (f === FUTURE_N - 1) ? 1 : fx0 + span;
+      var fy0 = last.b + f * 500, fy1 = last.b + (f + 1) * 500;
+      var fn = node(ROOT, fx0, fx1, fy0, fy1, 1, fe);
+      fn.isEra = true;
+      fn.isFuture = true;
+      ROOT.children.push(fn);
+    }
     return ROOT;
   }
 
@@ -4381,6 +4405,9 @@ window.HOE_FRAMES = {
       var nx1 = (i === parts.length - 1) ? n.x1 : acc + frac * xw;
       out.push(node(n, acc, nx1, parts[i][0], parts[i][1], n.depth + 1, null));
       acc = nx1;
+    }
+    if (n.isFuture) {
+      for (var q = 0; q < out.length; q++) { out[q].era = n.era; out[q].isFuture = true; }
     }
     n.children = out;
     return out;
@@ -4514,6 +4541,7 @@ window.HOE_FRAMES = {
     NOW: NOW,
     init: function () { var ok = init(); buildRoot(); return ok; },
     eras: function () { return ERAS; },
+    nowX: function () { return NOW_X; },
     eraById: function (id) { return ERA_BY_ID[id]; },
     windows: function () { return WINDOWS; },
     regions: REGIONS,
@@ -4627,6 +4655,10 @@ window.HOE_FRAMES = {
     dirty = true;
   }
 
+  /* Pulled all the way back, the whole object should be on the screen, with the
+     newest ring the outermost complete one. Framing by the screen corner put now
+     out past the edge where nobody could reach it, so frame by the shorter edge. */
+
   /* the only rule that matters is that the reading line always has history on it,
      so clamp the camera by where the reading line lands, not by the band edges */
   function clampCam(t) {
@@ -4635,7 +4667,7 @@ window.HOE_FRAMES = {
     var sp = spanOf(t.s);
     var tF = Math.max(0.05, Math.min(0.95, tFromR(FOCUS)));
     var off = (tF - 0.5) * sp;
-    t.c = Math.max(0.0005 - off, Math.min(0.9995 - off, t.c));
+    t.c = Math.max(0.0005 - off, Math.min(H.nowX() - 0.0005 - off, t.c));
   }
 
   /* ---------- which rings to draw ---------- */
@@ -4732,24 +4764,42 @@ window.HOE_FRAMES = {
   }
 
   /* Everything past the present, so the tunnel still runs to the corners of the
-     screen. These rings carry no history and no dates. They just fade out. */
+     screen. These rings carry no history and no dates. They keep the last era's
+     colour at full strength, because a ring that fades to black draws a hard
+     edge around the whole object and turns it into a disc on a dark page. */
   var LAST_HUE = 342;
   function futureRings(rStart) {
-    if (!isFinite(rStart) || rStart >= RMAX || rStart < 2) return;
-    var r0 = rStart, i = 0, lr = Math.log(RMAX / rStart);
+    if (!isFinite(rStart) || rStart >= RMAX * 1.3 || rStart < 2) return;
+    var eras = H.eras(), last = eras[eras.length - 1];
+    /* one more era's worth of radius, so the bands past the record are the same
+       size as the bands inside it */
+    var grow = Math.exp((last.x1 - last.x0) * LR / spanOf(cam.s));
+    if (!(grow > 1.02) || !isFinite(grow)) grow = 1.17;
+    if (grow > 3) grow = 3;
+    var r0 = rStart, k = 0;
     ctx.save();
-    while (r0 < RMAX && i < 48) {
-      var r1 = r0 * 1.085;
-      var k = Math.min(1, Math.log(r1 / rStart) / lr);
-      ctx.beginPath();
-      ctx.arc(0, 0, r1, 0, TAU);
-      ctx.arc(0, 0, r0, 0, TAU, true);
-      ctx.fillStyle = hsl(LAST_HUE - k * 16, 46 - k * 26, 23 - k * 16);
-      ctx.fill();
-      ctx.strokeStyle = 'rgba(226,242,240,' + (0.11 * (1 - k * 0.75)).toFixed(3) + ')';
+    while (r0 < RMAX * 1.3 && k < 16) {
+      var r1 = r0 * grow;
+      /* stay in the last era's family rather than walking the whole wheel, and
+         sink a little with every band, so the far edge reads as depth */
+      var hue = (last.hue - (k + 1) * 3.5 + 1440) % 360;
+      var sink = Math.min(9, k * 1.5);
+      for (var j = 0; j < 3; j++) {
+        var a0 = r0 * Math.pow(grow, j / 3), a1 = r0 * Math.pow(grow, (j + 1) / 3);
+        var ts = tShade(a1);
+        ctx.beginPath();
+        ctx.arc(0, 0, a1, 0, TAU);
+        ctx.arc(0, 0, a0, 0, TAU, true);
+        var gf = ctx.createRadialGradient(0, 0, a0, 0, 0, a1);
+        gf.addColorStop(0, hsl(hue, 27 + ts * 37 - sink, Math.max(3, 5.5 + ts * 11 - sink)));
+        gf.addColorStop(1, hsl(hue, 35 + ts * 37 - sink, Math.max(5, 11 + ts * 26 - sink * 1.6)));
+        ctx.fillStyle = gf;
+        ctx.fill();
+      }
+      ctx.strokeStyle = 'rgba(226,242,240,.10)';
       ctx.lineWidth = 1;
       ctx.beginPath(); ctx.arc(0, 0, r1, 0, TAU); ctx.stroke();
-      r0 = r1; i++;
+      r0 = r1; k++;
     }
     /* the spokes carry on outward, fading */
     var wedges = H.wedges(mode), N = wedges.length, step = TAU / N;
@@ -4773,9 +4823,12 @@ window.HOE_FRAMES = {
     var thick = r1 - r0, t = tShade(r1);
     var j = jit(n);
     var hue = (n.era.hue + (j - 0.5) * 12 + 360) % 360;
-    var sat = 27 + t * 37;
-    var l0 = 5.5 + t * 11 + (j - 0.5) * 4.5;
-    var l1 = 11 + t * 26 + (j - 0.5) * 6;
+    /* rings past the record sink as they go out, so the eye reads depth rather
+       than a brighter band than anything with history in it */
+    var dim = n.era.dim || 0;
+    var sat = Math.max(10, 27 + t * 37 - dim * 0.9);
+    var l0 = Math.max(2.5, 5.5 + t * 11 + (j - 0.5) * 4.5 - dim);
+    var l1 = Math.max(4, 11 + t * 26 + (j - 0.5) * 6 - dim * 1.45);
 
     ctx.beginPath();
     ctx.arc(0, 0, r1, 0, TAU);
@@ -4848,7 +4901,7 @@ window.HOE_FRAMES = {
     }
 
     /* hand the label back so the caller can resolve collisions by priority */
-    if (thick >= 13 && r1 > 70) {
+    if (thick >= 13 && r1 > 70 && !n.isFuture) {
       var txt = H.fmtShort(n.a, n.b);
       if (dw) txt = txt + '  ·  deep';
       else if (n.isEra) txt = n.era.short + '  ·  ' + txt;
@@ -4922,7 +4975,7 @@ window.HOE_FRAMES = {
       ctx.beginPath(); ctx.arc(0, 0, hr, 0, TAU); ctx.fill();
     }
 
-    futureRings(rFromX(1));
+    futureRings(rFromX(H.nowX()));
 
     var focusN = focusNode();
     var labels = [];
@@ -4948,12 +5001,12 @@ window.HOE_FRAMES = {
     }
 
     /* the present moment, drawn as the outer rim of the whole object */
-    var rNow = rFromX(1);
+    var rNow = rFromX(H.nowX());
     if (rNow > RMIN * 2 && rNow < RMAX * 0.96) {
-      ctx.strokeStyle = 'rgba(255,248,236,.55)';
-      ctx.lineWidth = 1.6;
+      ctx.strokeStyle = 'rgba(255,248,236,.30)';
+      ctx.lineWidth = 1.2;
       ctx.beginPath(); ctx.arc(0, 0, rNow, 0, TAU); ctx.stroke();
-      arcText('now', rNow + 12, -Math.PI / 2, 11.5, 'rgba(255,248,236,.82)');
+      arcText('now', rNow + 12, -Math.PI / 2, 11.5, 'rgba(255,248,236,.74)');
     }
 
     /* reading line */
